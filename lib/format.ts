@@ -16,6 +16,12 @@ const compact = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 1,
 });
 
+const usdWhole = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
+
 const whole = new Intl.NumberFormat("en-US");
 
 /** `$8.90` */
@@ -26,6 +32,42 @@ export function formatCpm(value: number): string {
 /** `$8.90–$12.40`. En dash, not a hyphen. */
 export function formatCpmRange(low: number, high: number): string {
   return `${usd.format(low)}–${usd.format(high)}`;
+}
+
+/**
+ * The worked example used wherever a CPM needs translating into money a
+ * person actually spends. One number, defined once, so every surface quotes
+ * the same budget.
+ */
+export const EXAMPLE_DAILY_BUDGET = 11;
+
+/** `$11/day` */
+export function formatDailyBudget(dollars: number = EXAMPLE_DAILY_BUDGET): string {
+  return `${usdWhole.format(dollars)}/day`;
+}
+
+/** Impressions a daily budget buys at a given CPM. */
+export function impressionsPerDay(cpm: number, dailyBudget = EXAMPLE_DAILY_BUDGET): number {
+  return (dailyBudget / cpm) * 1000;
+}
+
+/** Rounded to the nearest ten: this is arithmetic on a range, not a quote. */
+export function formatImpressions(value: number): string {
+  return whole.format(Math.round(value / 10) * 10);
+}
+
+/**
+ * `520–590` — impressions a day for the example budget. A higher CPM buys
+ * fewer impressions, so the low CPM produces the top of the range.
+ */
+export function formatImpressionsPerDayRange(
+  cpmLow: number,
+  cpmHigh: number,
+  dailyBudget = EXAMPLE_DAILY_BUDGET,
+): string {
+  const low = impressionsPerDay(cpmHigh, dailyBudget);
+  const high = impressionsPerDay(cpmLow, dailyBudget);
+  return `${formatImpressions(low)}–${formatImpressions(high)}`;
 }
 
 /** `8.4M` — for axis labels and dense rows. */

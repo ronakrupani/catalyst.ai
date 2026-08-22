@@ -544,7 +544,7 @@ button.ct-span { cursor: pointer; }
 }
 
 [data-pin="act1"] { height: 220vh; }
-[data-pin="act2"] { height: 160vh; }
+[data-pin="act2"] { height: 200vh; }
 
 /* Act 2 sits below the docked rail, so its sticky inner starts under it. */
 [data-pin="act2"] [data-pin-inner] {
@@ -635,9 +635,9 @@ button.ct-span { cursor: pointer; }
 
 /* ============================================================
    Act 2 — the stage split.
-   `--wipe` remaps the back half of the act's scroll onto 0..1,
-   so the channel rows resolve first and the divider then travels
-   right with the amber panel appearing behind it.
+   `--wipe` remaps the back half of the act's scroll onto an eased
+   0..1, so the channel rows resolve first and the stage boundary
+   then walks right while the placements cascade in behind it.
    ============================================================ */
 
 .ct-split {
@@ -654,45 +654,71 @@ button.ct-span { cursor: pointer; }
 
 .ct-split__panel--wipe {
   position: relative;
-  /* clip, not hidden: contains the veil and divider as they travel right
+  /* clip, not hidden: contains the travelling front as it crosses the panel
      without creating a scroll container. */
   overflow: clip;
-  --wipe: clamp(0, calc((var(--p, 1) - 0.45) / 0.55), 1);
+
+  /* Raw scroll ramp for stage 2, then smoothstepped. The eased value is what
+     everything below reads, so the panel eases in and settles rather than
+     arriving at a constant rate and stopping dead. */
+  --wipe-raw: clamp(0, calc((var(--p, 1) - 0.22) / 0.5), 1);
+  --wipe: calc(var(--wipe-raw) * var(--wipe-raw) * (3 - 2 * var(--wipe-raw)));
 }
 
-.ct-split__veil {
-  position: absolute;
-  inset: -4px;
-  background: var(--ct-bg);
-  transform: translate3d(calc(var(--wipe) * 100%), 0, 0);
-  pointer-events: none;
+/* The panel arrives as a block: a short slide from the divider's side, with
+   the frame resolving well before the rows inside it do. */
+.ct-split__wipe-content {
+  opacity: clamp(0, calc(var(--wipe) / 0.2), 1);
+  transform: translate3d(calc((1 - var(--wipe)) * 20px), 0, 0);
 }
 
-/* The divider is the same stage boundary the docked rail shows, so the two
-   read as one moving front. */
-.ct-split__divider {
+/* Placement rows cascade in rank order behind the front. Each row owns an
+   index and derives its own sub-range from the eased wipe, so scrolling up
+   rewinds the cascade exactly. Compositor-only: opacity and transform. */
+.ct-split__row {
+  /* Eight steps (six placements, the counter, the closing note) must all
+     finish inside the wipe, so the last one starts at 0.55 and lands at
+     0.89 — leaving a beat of hold before the act unpins. */
+  --row-start: calc(0.06 + var(--i, 0) * 0.07);
+  --row: clamp(0, calc((var(--wipe) - var(--row-start)) / 0.34), 1);
+  opacity: var(--row);
+  transform: translate3d(calc((1 - var(--row)) * 12px), 0, 0);
+}
+
+/* The stage boundary itself. Full-panel width with the line drawn on its
+   right edge, so translating it -100%..0 walks the line across the panel —
+   a percentage transform resolves against the element, not the parent. */
+.ct-split__front {
   position: absolute;
   top: -4px;
+  right: -4px;
   bottom: -4px;
   left: -4px;
-  width: 2px;
-  background: var(--ct-sodium-base);
-  opacity: calc(1 - var(--wipe));
-  transform: translate3d(calc(var(--wipe) * 100%), 0, 0);
+  border-right: 2px solid var(--ct-sodium-base);
+  background: linear-gradient(
+    to right,
+    transparent 55%,
+    var(--ct-sodium-wash) 100%
+  );
+  /* +6px so that at rest the 2px edge lands just inside the clip rather than
+     one pixel outside it, where it would be invisible. */
+  transform: translate3d(calc((var(--wipe) - 1) * 100% + 6px), 0, 0);
+  /* Holds while it travels, then dissolves once it reaches the far edge. */
+  opacity: clamp(0, calc((1 - var(--wipe)) / 0.15), 1);
   pointer-events: none;
 }
 
 @media (max-width: 767px) {
   /* Stacks, does not pin, colour assignment preserved. */
   .ct-split__panel--wipe { --wipe: 1; }
-  .ct-split__veil,
-  .ct-split__divider { display: none; }
+  .ct-split__front { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ct-split__panel--wipe { --wipe: 1 !important; }
-  .ct-split__veil,
-  .ct-split__divider { display: none; }
+  .ct-split__wipe-content,
+  .ct-split__row { opacity: 1; transform: none; }
+  .ct-split__front { display: none; }
 }
 
 /* ============================================================

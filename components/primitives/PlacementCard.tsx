@@ -4,7 +4,9 @@ import {
   formatCacheStamp,
   formatCpm,
   formatCpmRange,
+  formatDailyBudget,
   formatFormat,
+  formatImpressionsPerDayRange,
   formatReachCompact,
   formatReachExact,
   formatScore,
@@ -239,6 +241,19 @@ export function PlacementCard({
                 {formatCpm(cpmMax)}
               </MonoValue>
             </div>
+            {/* CPM restated as a day of spend — the unit an advertiser
+                actually budgets in. Arithmetic on the range above, nothing
+                new from the platform. */}
+            <p className="mt-2 text-body-sm text-slate-400">
+              <MonoValue size="body-sm" tone="secondary">
+                {formatDailyBudget()}
+              </MonoValue>{" "}
+              buys{" "}
+              <MonoValue size="body-sm" tone="secondary">
+                {formatImpressionsPerDayRange(p.cpmLow, p.cpmHigh)}
+              </MonoValue>{" "}
+              impressions a day here.
+            </p>
           </div>
 
           <p className="mt-3 line-clamp-2 text-body-sm leading-relaxed text-slate-300">{p.rationale}</p>

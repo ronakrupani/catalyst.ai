@@ -3,7 +3,13 @@
 import { useCallback, useRef, useState } from "react";
 import type { DemoRun } from "@/lib/types";
 import { runStateAt, runSummary } from "@/lib/replay";
-import { formatCpmRange, formatDuration } from "@/lib/format";
+import {
+  formatCpmRange,
+  formatDailyBudget,
+  formatDuration,
+  formatImpressions,
+  impressionsPerDay,
+} from "@/lib/format";
 import { usePrefersReducedMotion, useActProgress } from "@/lib/scroll";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -120,7 +126,15 @@ export function Hero({ run }: { run: DemoRun }) {
             <MonoValue size="body-lg" tone="default">
               {formatDuration(summary.totalDurationMs)}
             </MonoValue>
-            .
+            . At{" "}
+            <MonoValue size="body-lg" tone="stage-2">
+              {formatDailyBudget()}
+            </MonoValue>{" "}
+            the cheapest of them runs about{" "}
+            <MonoValue size="body-lg" tone="default">
+              {formatImpressions(impressionsPerDay(summary.cpmLow))}
+            </MonoValue>{" "}
+            impressions a day.
           </p>
 
           <div className="mt-4 grid min-w-0 gap-4 sm:mt-6 sm:gap-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-8">
