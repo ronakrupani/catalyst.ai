@@ -903,13 +903,23 @@ button.ct-span { cursor: pointer; }
   .ct-stepper__seg[data-state="current"] .ct-stepper__bar { animation: none; }
 }
 
-/* Dashboard shell. Icon rail, contextual column, content. */
+/* Dashboard shell. Labelled sidebar, contextual column, content.
+   Nav items carry both icon and label: icon-only navigation costs
+   discoverability, and the health strip needs room for its names. */
 .ct-shell {
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
+  grid-template-columns: 232px minmax(0, 1fr);
   min-height: 100dvh;
 }
 
 .ct-shell[data-context] {
-  grid-template-columns: 56px 264px minmax(0, 1fr);
+  grid-template-columns: 232px 264px minmax(0, 1fr);
+}
+
+/* Below 1280 the contextual column yields first, so the content column
+   keeps a workable measure. */
+@media (max-width: 1279px) {
+  .ct-shell[data-context] {
+    grid-template-columns: 232px 232px minmax(0, 1fr);
+  }
 }

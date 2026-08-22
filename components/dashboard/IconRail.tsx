@@ -19,61 +19,62 @@ export function IconRail() {
   return (
     <nav
       aria-label="Dashboard"
-      className="sticky top-0 flex h-dvh w-14 flex-col items-center border-r border-border bg-panel py-3"
+      className="sticky top-0 flex h-dvh flex-col border-r border-border bg-panel"
     >
       <Link
         href="/"
+        className="flex h-14 shrink-0 items-center gap-2.5 px-4"
         aria-label="Catalyst home"
-        className="flex size-10 items-center justify-center rounded-sm"
       >
         <IconLogo />
+        <span className="ct-display text-body-lg text-slate-100">catalyst.ai</span>
       </Link>
 
-      <ul className="mt-4 flex flex-col items-center gap-1">
+      <ul className="mt-2 flex flex-col gap-0.5 px-2">
         {ITEMS.map(({ href, label, Icon, exact }) => {
           const active = exact ? pathname === href : pathname.startsWith(href);
           return (
             <li key={href}>
               <Link
                 href={href}
-                aria-label={label}
                 aria-current={active ? "page" : undefined}
-                title={label}
-                className={`flex size-11 items-center justify-center rounded-sm transition-colors duration-[120ms] ease-ct ${
+                className={`flex h-11 items-center gap-3 rounded-sm px-3 text-body transition-colors duration-[120ms] ease-ct ${
                   active
                     ? "bg-ink-300 text-slate-100"
-                    : "text-slate-400 hover:bg-ink-200 hover:text-slate-200"
+                    : "text-slate-300 hover:bg-ink-200 hover:text-slate-100"
                 }`}
               >
                 <Icon />
+                {label}
               </Link>
             </li>
           );
         })}
       </ul>
 
-      <div className="mt-auto w-full border-t border-border pt-3">
-        <ul className="flex flex-col items-center gap-3">
+      {/* Bottom-pinned health strip. Not a route. */}
+      <section aria-label="Connections" className="mt-auto border-t border-border px-4 py-4">
+        <h2 className="ct-eyebrow">Connections</h2>
+        <ul className="mt-3 flex flex-col gap-2.5">
           {CONNECTIONS.map((c) => (
-            <li key={c.name} className="group relative flex flex-col items-center gap-1">
+            <li key={c.name} className="flex items-center gap-2.5">
               <span
                 aria-hidden="true"
-                className={`size-1.5 rounded-full ${c.operational ? "bg-green-base" : "bg-red-base"}`}
+                className={`size-1.5 shrink-0 rounded-full ${
+                  c.operational ? "bg-green-base" : "bg-red-base"
+                }`}
               />
-              <MonoValue size="eyebrow" tone="muted" aria-hidden="true">
+              <span className="min-w-0 flex-1 truncate text-body-sm text-slate-300">{c.name}</span>
+              <MonoValue size="body-sm" tone="muted">
                 {formatDuration(c.lastCallMs)}
               </MonoValue>
-              <span className="pointer-events-none absolute bottom-0 left-full z-50 ml-2 hidden whitespace-nowrap rounded-sm border border-border-strong bg-card px-2 py-1 group-hover:block">
-                <span className="text-body-sm text-slate-200">{c.name}</span>
-              </span>
               <span className="sr-only">
-                {c.name}, {c.operational ? "operational" : "unavailable"}, last call{" "}
-                {formatDuration(c.lastCallMs)}
+                {c.operational ? "operational" : "unavailable"}
               </span>
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     </nav>
   );
 }

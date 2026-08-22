@@ -14,7 +14,7 @@ export function ContextColumn({ campaigns }: { campaigns: Campaign[] }) {
   return (
     <aside
       aria-label="Campaigns"
-      className="sticky top-0 h-dvh w-[264px] overflow-y-auto border-r border-border bg-panel"
+      className="sticky top-0 h-dvh w-full overflow-y-auto border-r border-border bg-panel"
     >
       <div className="px-4 py-4">
         <h2 className="ct-eyebrow">Campaigns</h2>
