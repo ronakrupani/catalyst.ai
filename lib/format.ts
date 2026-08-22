@@ -37,18 +37,18 @@ export function formatCpmRange(low: number, high: number): string {
 /**
  * The worked example used wherever a CPM needs translating into money a
  * person actually spends. One number, defined once, so every surface quotes
- * the same budget.
+ * the same rate.
  */
-export const EXAMPLE_DAILY_BUDGET = 11;
+export const EXAMPLE_HOURLY_BUDGET = 11;
 
-/** `$11/day` */
-export function formatDailyBudget(dollars: number = EXAMPLE_DAILY_BUDGET): string {
-  return `${usdWhole.format(dollars)}/day`;
+/** `$11/hour` */
+export function formatHourlyBudget(dollars: number = EXAMPLE_HOURLY_BUDGET): string {
+  return `${usdWhole.format(dollars)}/hour`;
 }
 
-/** Impressions a daily budget buys at a given CPM. */
-export function impressionsPerDay(cpm: number, dailyBudget = EXAMPLE_DAILY_BUDGET): number {
-  return (dailyBudget / cpm) * 1000;
+/** Impressions an hourly budget buys at a given CPM. */
+export function impressionsPerHour(cpm: number, hourlyBudget = EXAMPLE_HOURLY_BUDGET): number {
+  return (hourlyBudget / cpm) * 1000;
 }
 
 /** Rounded to the nearest ten: this is arithmetic on a range, not a quote. */
@@ -57,16 +57,16 @@ export function formatImpressions(value: number): string {
 }
 
 /**
- * `520–590` — impressions a day for the example budget. A higher CPM buys
+ * `520–590` — impressions an hour for the example rate. A higher CPM buys
  * fewer impressions, so the low CPM produces the top of the range.
  */
-export function formatImpressionsPerDayRange(
+export function formatImpressionsPerHourRange(
   cpmLow: number,
   cpmHigh: number,
-  dailyBudget = EXAMPLE_DAILY_BUDGET,
+  hourlyBudget = EXAMPLE_HOURLY_BUDGET,
 ): string {
-  const low = impressionsPerDay(cpmHigh, dailyBudget);
-  const high = impressionsPerDay(cpmLow, dailyBudget);
+  const low = impressionsPerHour(cpmHigh, hourlyBudget);
+  const high = impressionsPerHour(cpmLow, hourlyBudget);
   return `${formatImpressions(low)}–${formatImpressions(high)}`;
 }
 

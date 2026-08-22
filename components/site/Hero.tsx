@@ -5,10 +5,10 @@ import type { DemoRun } from "@/lib/types";
 import { runStateAt, runSummary } from "@/lib/replay";
 import {
   formatCpmRange,
-  formatDailyBudget,
   formatDuration,
+  formatHourlyBudget,
   formatImpressions,
-  impressionsPerDay,
+  impressionsPerHour,
 } from "@/lib/format";
 import { usePrefersReducedMotion, useActProgress } from "@/lib/scroll";
 import { Button } from "@/components/ui/button";
@@ -128,13 +128,13 @@ export function Hero({ run }: { run: DemoRun }) {
             </MonoValue>
             . At{" "}
             <MonoValue size="body-lg" tone="stage-2">
-              {formatDailyBudget()}
+              {formatHourlyBudget()}
             </MonoValue>{" "}
             the cheapest of them runs about{" "}
             <MonoValue size="body-lg" tone="default">
-              {formatImpressions(impressionsPerDay(summary.cpmLow))}
+              {formatImpressions(impressionsPerHour(summary.cpmLow))}
             </MonoValue>{" "}
-            impressions a day.
+            impressions an hour.
           </p>
 
           <div className="mt-4 grid min-w-0 gap-4 sm:mt-6 sm:gap-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-8">

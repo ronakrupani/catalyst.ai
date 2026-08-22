@@ -5,9 +5,9 @@ import type { DemoRun } from "@/lib/types";
 import { cpmBounds } from "@/lib/replay";
 import {
   formatAgeRange,
-  formatDailyBudget,
   formatDuration,
-  formatImpressionsPerDayRange,
+  formatHourlyBudget,
+  formatImpressionsPerHourRange,
 } from "@/lib/format";
 import { useActProgress } from "@/lib/scroll";
 import { ChannelRow } from "@/components/primitives/ChannelRow";
@@ -79,7 +79,7 @@ export function StageSplit({ run }: { run: DemoRun }) {
     [run.placements],
   );
 
-  // The two ends of the price range, so the day-of-spend example brackets
+  // The two ends of the price range, so the hour-of-spend example brackets
   // the whole result set rather than quoting one placement.
   const [cheapest, dearest] = useMemo(() => {
     const byCpm = [...run.placements].sort((a, b) => a.cpmLow - b.cpmLow);
@@ -198,20 +198,20 @@ export function StageSplit({ run }: { run: DemoRun }) {
                   style={{ "--i": String(CARDS_SHOWN + 1) } as React.CSSProperties}
                 >
                   {/* CPM is a unit nobody budgets in. The same number, said
-                      as a day of spend on the cheapest and dearest of these. */}
+                      as an hour of spend on the cheapest and dearest of these. */}
                   <div className="rounded-md border border-border bg-ink-100 p-3">
                     <div className="ct-eyebrow">what that costs to run</div>
                     <p className="mt-1.5 text-body-sm leading-relaxed text-slate-200">
                       <MonoValue size="body" tone="stage-2">
-                        {formatDailyBudget()}
+                        {formatHourlyBudget()}
                       </MonoValue>{" "}
                       buys{" "}
                       <MonoValue size="body-sm" tone="secondary">
-                        {formatImpressionsPerDayRange(cheapest.cpmLow, cheapest.cpmHigh)}
+                        {formatImpressionsPerHourRange(cheapest.cpmLow, cheapest.cpmHigh)}
                       </MonoValue>{" "}
-                      impressions a day on {cheapest.publisher}, or{" "}
+                      impressions an hour on {cheapest.publisher}, or{" "}
                       <MonoValue size="body-sm" tone="secondary">
-                        {formatImpressionsPerDayRange(dearest.cpmLow, dearest.cpmHigh)}
+                        {formatImpressionsPerHourRange(dearest.cpmLow, dearest.cpmHigh)}
                       </MonoValue>{" "}
                       on {dearest.publisher}. Same budget, different shelf.
                     </p>
