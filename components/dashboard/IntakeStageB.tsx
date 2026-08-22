@@ -33,7 +33,7 @@ function validate(brief: CampaignBrief, field: Field): string | null {
       if (!brief.product_url.trim()) return "Add your website.";
       return /\.[a-z]{2,}/i.test(brief.product_url)
         ? null
-        : "That does not look like a URL. Try acme.ai.";
+        : "That does not look like a URL. Try apple.com.";
     case "offer_summary":
       return brief.offer_summary.trim()
         ? null

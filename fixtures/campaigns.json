@@ -1,16 +1,16 @@
 {
   "campaigns": [
     {
-      "id": "cmp_molten_hot_sauce",
+      "id": "cmp_apple_music",
       "status": "READY_FOR_RESEARCH",
       "createdAtMs": 1787396520000,
       "brief": {
-        "product_name": "Molten",
-        "product_url": "https://moltensauce.co",
-        "offer_summary": "Small-batch fermented hot sauce, shipped direct in a four-bottle heat ladder.",
-        "target_audience": "Home cooks in their twenties and thirties who buy condiments as a hobby, not a staple.",
-        "campaign_goal": "Drive sales",
-        "maximum_spend_usd": 8000,
+        "product_name": "Apple Music",
+        "product_url": "https://apple.com/apple-music",
+        "offer_summary": "One hundred million songs in lossless and spatial audio, three months free with a device.",
+        "target_audience": "Streaming subscribers in their twenties on a rival service, and lapsed trial users.",
+        "campaign_goal": "Free-trial signups",
+        "maximum_spend_usd": 90000,
         "publication_window_start": "2026-09-08",
         "publication_window_end": "2026-10-06"
       },
@@ -18,25 +18,11 @@
         "channels": [
           {
             "rank": 1,
-            "platform": "Instagram",
-            "rationale": "Food discovery is visual and Reels convert on taste. Your best-scoring channel by some margin.",
-            "confidence": 0.91,
-            "cpmLow": 9.8,
-            "cpmHigh": 15.4,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 1080,
-              "h": 1080
-            }
-          },
-          {
-            "rank": 2,
             "platform": "TikTok",
-            "rationale": "Hot sauce is a reaction product and reaction content spreads without paid support.",
-            "confidence": 0.89,
-            "cpmLow": 6.2,
-            "cpmHigh": 11,
+            "rationale": "Discovery starts with a sound, not an artist. This is the shortest path to a first listen.",
+            "confidence": 0.92,
+            "cpmLow": 6.8,
+            "cpmHigh": 12.1,
             "included": true,
             "source": "live",
             "adUnit": {
@@ -45,40 +31,26 @@
             }
           },
           {
+            "rank": 2,
+            "platform": "Instagram",
+            "rationale": "Reels and Stories carry the same clips, and saves here predict trial starts well.",
+            "confidence": 0.88,
+            "cpmLow": 10.4,
+            "cpmHigh": 16.2,
+            "included": true,
+            "source": "live",
+            "adUnit": {
+              "w": 1080,
+              "h": 1080
+            }
+          },
+          {
             "rank": 3,
-            "platform": "Meta Audience Network",
-            "rationale": "Cheapest incremental reach in the set. Weak on brand, strong on retargeting the visits above.",
-            "confidence": 0.82,
-            "cpmLow": 4.9,
-            "cpmHigh": 8.6,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 300,
-              "h": 250
-            }
-          },
-          {
-            "rank": 4,
-            "platform": "Pinterest",
-            "rationale": "Recipe intent, long shelf life per pin. Slower to convert but the cheapest cost per saved intent.",
-            "confidence": 0.76,
-            "cpmLow": 5.4,
-            "cpmHigh": 9.3,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 1000,
-              "h": 1500
-            }
-          },
-          {
-            "rank": 5,
             "platform": "YouTube",
-            "rationale": "Cooking channels and hot-ones style formats. Sponsorship reads better here than a pre-roll.",
-            "confidence": 0.71,
-            "cpmLow": 8.1,
-            "cpmHigh": 13.7,
+            "rationale": "Music video watch time is the strongest signal of a listener not yet on a subscription.",
+            "confidence": 0.85,
+            "cpmLow": 11.9,
+            "cpmHigh": 18.3,
             "included": true,
             "source": "live",
             "adUnit": {
@@ -87,12 +59,40 @@
             }
           },
           {
-            "rank": 6,
+            "rank": 4,
             "platform": "Reddit",
-            "rationale": "r/hotsauce and r/spicy are small, loyal and openly hostile to anything that reads as an ad.",
-            "confidence": 0.64,
-            "cpmLow": 5.8,
-            "cpmHigh": 9.9,
+            "rationale": "Genre subreddits argue about catalogue and lossless. Small reach, unusually decided buyers.",
+            "confidence": 0.74,
+            "cpmLow": 8.2,
+            "cpmHigh": 13,
+            "included": true,
+            "source": "live",
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            }
+          },
+          {
+            "rank": 5,
+            "platform": "X",
+            "rationale": "Reach around release Fridays, useful for a launch beat and little else.",
+            "confidence": 0.69,
+            "cpmLow": 7.6,
+            "cpmHigh": 12.4,
+            "included": true,
+            "source": "live",
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            }
+          },
+          {
+            "rank": 6,
+            "platform": "Meta Audience Network",
+            "rationale": "Retargeting the free-trial page. Cheapest way back to someone who nearly signed up.",
+            "confidence": 0.63,
+            "cpmLow": 4.8,
+            "cpmHigh": 8.9,
             "included": true,
             "source": "live",
             "adUnit": {
@@ -108,14 +108,14 @@
       },
       "creative": {
         "kind": "generated",
-        "filename": "molten-instagram-1080x1080.png",
-        "sizeBytes": 421888,
+        "filename": "apple-music-tiktok-1080x1920.png",
+        "sizeBytes": 468992,
         "format": "PNG",
         "adUnit": {
           "w": 1080,
-          "h": 1080
+          "h": 1920
         },
-        "briefedAgainst": "Instagram"
+        "briefedAgainst": "TikTok"
       },
       "prefilled": [
         "product_name",
@@ -123,9 +123,9 @@
         "offer_summary"
       ],
       "traceUrl": "https://signoz.catalyst.internal/trace/2b81e0c4aa19",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_molten_hot_sauce",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_apple_music",
       "payload": {
-        "campaign_id": "cmp_molten_hot_sauce",
+        "campaign_id": "cmp_apple_music",
         "status": "READY_FOR_RESEARCH",
         "flight": {
           "start": "2026-09-08",
@@ -133,53 +133,53 @@
         },
         "budget": {
           "currency": "USD",
-          "cap": 8000,
+          "cap": 90000,
           "pacing": "even"
         },
         "creative": {
           "format": "PNG",
           "width": 1080,
-          "height": 1080,
+          "height": 1920,
           "asset_id": "ast_1d90bb"
         },
         "targeting": {
-          "audience": "Home cooks in their twenties and thirties who buy condiments as a hobby, not a staple.",
+          "audience": "Streaming subscribers in their twenties on a rival service, and lapsed trial users.",
           "channels": [
             {
-              "platform": "Instagram",
-              "confidence": 0.91,
-              "cpm_floor": 9.8,
-              "cpm_ceiling": 15.4
-            },
-            {
               "platform": "TikTok",
-              "confidence": 0.89,
-              "cpm_floor": 6.2,
-              "cpm_ceiling": 11
+              "confidence": 0.92,
+              "cpm_floor": 6.8,
+              "cpm_ceiling": 12.1
             },
             {
-              "platform": "Meta Audience Network",
-              "confidence": 0.82,
-              "cpm_floor": 4.9,
-              "cpm_ceiling": 8.6
-            },
-            {
-              "platform": "Pinterest",
-              "confidence": 0.76,
-              "cpm_floor": 5.4,
-              "cpm_ceiling": 9.3
+              "platform": "Instagram",
+              "confidence": 0.88,
+              "cpm_floor": 10.4,
+              "cpm_ceiling": 16.2
             },
             {
               "platform": "YouTube",
-              "confidence": 0.71,
-              "cpm_floor": 8.1,
-              "cpm_ceiling": 13.7
+              "confidence": 0.85,
+              "cpm_floor": 11.9,
+              "cpm_ceiling": 18.3
             },
             {
               "platform": "Reddit",
-              "confidence": 0.64,
-              "cpm_floor": 5.8,
-              "cpm_ceiling": 9.9
+              "confidence": 0.74,
+              "cpm_floor": 8.2,
+              "cpm_ceiling": 13
+            },
+            {
+              "platform": "X",
+              "confidence": 0.69,
+              "cpm_floor": 7.6,
+              "cpm_ceiling": 12.4
+            },
+            {
+              "platform": "Meta Audience Network",
+              "confidence": 0.63,
+              "cpm_floor": 4.8,
+              "cpm_ceiling": 8.9
             }
           ]
         },
@@ -190,17 +190,17 @@
       }
     },
     {
-      "id": "cmp_acme_ai",
+      "id": "cmp_apple_vision_pro",
       "status": "ACTIVE",
       "createdAtMs": 1787130840000,
       "launchedAtMs": 1787131326000,
       "brief": {
-        "product_name": "Acme AI",
-        "product_url": "https://acme.ai",
-        "offer_summary": "Automatic meeting notes and action items for engineering teams, wired into Linear and GitHub.",
-        "target_audience": "Engineering managers and staff engineers at 50 to 500 person software companies.",
-        "campaign_goal": "Free-trial signups",
-        "maximum_spend_usd": 25000,
+        "product_name": "Apple Vision Pro",
+        "product_url": "https://apple.com/apple-vision-pro",
+        "offer_summary": "Spatial computer for work and cinema, with trade-in and carrier-free financing.",
+        "target_audience": "Existing Mac and iPad owners in creative and technical work, comfortable at a premium price.",
+        "campaign_goal": "Brand awareness",
+        "maximum_spend_usd": 250000,
         "publication_window_start": "2026-09-01",
         "publication_window_end": "2026-10-15"
       },
@@ -208,39 +208,39 @@
         "channels": [
           {
             "rank": 1,
-            "platform": "LinkedIn",
-            "rationale": "Decision makers for developer tooling sit here, and job-title targeting maps directly onto your buyer.",
-            "confidence": 0.93,
-            "cpmLow": 28,
-            "cpmHigh": 41.5,
+            "platform": "YouTube",
+            "rationale": "Launch films live here, and the audience searches for them by name within the hour.",
+            "confidence": 0.94,
+            "cpmLow": 16.4,
+            "cpmHigh": 24.8,
             "included": true,
             "source": "live",
             "adUnit": {
-              "w": 728,
-              "h": 90
-            }
-          },
-          {
-            "rank": 2,
-            "platform": "Reddit",
-            "rationale": "r/programming and r/devops carry the practitioners who trial the product before finance sees it.",
-            "confidence": 0.88,
-            "cpmLow": 9.2,
-            "cpmHigh": 14.8,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 300,
+              "w": 970,
               "h": 250
             }
           },
           {
+            "rank": 2,
+            "platform": "Instagram",
+            "rationale": "Spatial video is the whole pitch, and this is where people already judge camera claims.",
+            "confidence": 0.91,
+            "cpmLow": 12.6,
+            "cpmHigh": 19.2,
+            "included": true,
+            "source": "live",
+            "adUnit": {
+              "w": 1080,
+              "h": 1080
+            }
+          },
+          {
             "rank": 3,
-            "platform": "Stack Overflow",
-            "rationale": "Intent is highest where the problem is being debugged. Small reach, very little waste.",
-            "confidence": 0.85,
-            "cpmLow": 18.4,
-            "cpmHigh": 26,
+            "platform": "Reddit",
+            "rationale": "r/VisionPro and r/apple decide whether a price is defensible before anyone visits a store.",
+            "confidence": 0.84,
+            "cpmLow": 9.1,
+            "cpmHigh": 14.3,
             "included": true,
             "source": "live",
             "adUnit": {
@@ -250,39 +250,39 @@
           },
           {
             "rank": 4,
-            "platform": "Carbon Ads",
-            "rationale": "Single unobtrusive unit across developer publications. Cheap reach against an endemic audience.",
-            "confidence": 0.79,
-            "cpmLow": 12,
-            "cpmHigh": 19.5,
+            "platform": "X",
+            "rationale": "Fast reach through the launch window, though targeting has degraded and waste runs higher.",
+            "confidence": 0.77,
+            "cpmLow": 8.8,
+            "cpmHigh": 13.6,
             "included": true,
             "source": "live",
             "adUnit": {
-              "w": 130,
-              "h": 100
-            }
-          },
-          {
-            "rank": 5,
-            "platform": "YouTube",
-            "rationale": "Conference talks and tooling reviews. Works for demand capture once the category is understood.",
-            "confidence": 0.74,
-            "cpmLow": 11.3,
-            "cpmHigh": 17.2,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 970,
+              "w": 300,
               "h": 250
             }
           },
           {
+            "rank": 5,
+            "platform": "TikTok",
+            "rationale": "Demo reactions travel further than the ad does. Paid buys compound the organic reach.",
+            "confidence": 0.72,
+            "cpmLow": 7.2,
+            "cpmHigh": 12.4,
+            "included": true,
+            "source": "live",
+            "adUnit": {
+              "w": 1080,
+              "h": 1920
+            }
+          },
+          {
             "rank": 6,
-            "platform": "X",
-            "rationale": "Fast reach among engineering leads, though targeting has degraded and waste is higher than the rest.",
-            "confidence": 0.68,
-            "cpmLow": 8.4,
-            "cpmHigh": 13.1,
+            "platform": "Meta Audience Network",
+            "rationale": "Cheapest incremental reach in the set. Weak on brand, right for retargeting the visits.",
+            "confidence": 0.66,
+            "cpmLow": 5.4,
+            "cpmHigh": 9.8,
             "included": true,
             "source": "live",
             "adUnit": {
@@ -296,14 +296,14 @@
       },
       "creative": {
         "kind": "generated",
-        "filename": "acme-ai-linkedin-728x90.png",
-        "sizeBytes": 184320,
+        "filename": "apple-vision-pro-youtube-970x250.png",
+        "sizeBytes": 214016,
         "format": "PNG",
         "adUnit": {
-          "w": 728,
-          "h": 90
+          "w": 970,
+          "h": 250
         },
-        "briefedAgainst": "LinkedIn"
+        "briefedAgainst": "YouTube"
       },
       "prefilled": [
         "product_name",
@@ -312,9 +312,9 @@
         "target_audience"
       ],
       "traceUrl": "https://signoz.catalyst.internal/trace/9f3c2a41b7e0",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_acme_ai",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_apple_vision_pro",
       "payload": {
-        "campaign_id": "cmp_acme_ai",
+        "campaign_id": "cmp_apple_vision_pro",
         "status": "ACTIVE",
         "flight": {
           "start": "2026-09-01",
@@ -322,53 +322,53 @@
         },
         "budget": {
           "currency": "USD",
-          "cap": 25000,
+          "cap": 250000,
           "pacing": "even"
         },
         "creative": {
           "format": "PNG",
-          "width": 728,
-          "height": 90,
+          "width": 970,
+          "height": 250,
           "asset_id": "ast_7c41f0"
         },
         "targeting": {
-          "audience": "Engineering managers and staff engineers at 50 to 500 person software companies.",
+          "audience": "Existing Mac and iPad owners in creative and technical work, comfortable at a premium price.",
           "channels": [
             {
-              "platform": "LinkedIn",
-              "confidence": 0.93,
-              "cpm_floor": 28,
-              "cpm_ceiling": 41.5
+              "platform": "YouTube",
+              "confidence": 0.94,
+              "cpm_floor": 16.4,
+              "cpm_ceiling": 24.8
+            },
+            {
+              "platform": "Instagram",
+              "confidence": 0.91,
+              "cpm_floor": 12.6,
+              "cpm_ceiling": 19.2
             },
             {
               "platform": "Reddit",
-              "confidence": 0.88,
-              "cpm_floor": 9.2,
-              "cpm_ceiling": 14.8
-            },
-            {
-              "platform": "Stack Overflow",
-              "confidence": 0.85,
-              "cpm_floor": 18.4,
-              "cpm_ceiling": 26
-            },
-            {
-              "platform": "Carbon Ads",
-              "confidence": 0.79,
-              "cpm_floor": 12,
-              "cpm_ceiling": 19.5
-            },
-            {
-              "platform": "YouTube",
-              "confidence": 0.74,
-              "cpm_floor": 11.3,
-              "cpm_ceiling": 17.2
+              "confidence": 0.84,
+              "cpm_floor": 9.1,
+              "cpm_ceiling": 14.3
             },
             {
               "platform": "X",
-              "confidence": 0.68,
-              "cpm_floor": 8.4,
-              "cpm_ceiling": 13.1
+              "confidence": 0.77,
+              "cpm_floor": 8.8,
+              "cpm_ceiling": 13.6
+            },
+            {
+              "platform": "TikTok",
+              "confidence": 0.72,
+              "cpm_floor": 7.2,
+              "cpm_ceiling": 12.4
+            },
+            {
+              "platform": "Meta Audience Network",
+              "confidence": 0.66,
+              "cpm_floor": 5.4,
+              "cpm_ceiling": 9.8
             }
           ]
         },
@@ -381,148 +381,148 @@
   ],
   "events": [
     {
-      "id": "cmp_acme_ai_evt_01",
+      "id": "cmp_apple_vision_pro_evt_01",
       "tsMs": 1787130840000,
       "type": "campaign.created",
-      "entityId": "ct_cmp_51a2c",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_51a2c"
+      "entityId": "ct_app_51a2c",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51a2c"
     },
     {
-      "id": "cmp_acme_ai_evt_02",
+      "id": "cmp_apple_vision_pro_evt_02",
       "tsMs": 1787130841200,
       "type": "intake.brief.completed",
-      "entityId": "ct_cmp_51ce3",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_51ce3"
+      "entityId": "ct_app_51ce3",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51ce3"
     },
     {
-      "id": "cmp_acme_ai_evt_03",
+      "id": "cmp_apple_vision_pro_evt_03",
       "tsMs": 1787130841600,
       "type": "stage1.offer.classified",
-      "entityId": "ct_cmp_51f9a",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_51f9a"
+      "entityId": "ct_app_51f9a",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51f9a"
     },
     {
-      "id": "cmp_acme_ai_evt_04",
+      "id": "cmp_apple_vision_pro_evt_04",
       "tsMs": 1787130843400,
       "type": "stage1.channels.scored",
-      "entityId": "ct_cmp_52251",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52251"
+      "entityId": "ct_app_52251",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52251"
     },
     {
-      "id": "cmp_acme_ai_evt_05",
+      "id": "cmp_apple_vision_pro_evt_05",
       "tsMs": 1787130845100,
       "type": "stage2.rate_cards.pulled",
-      "entityId": "ct_cmp_52508",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52508"
+      "entityId": "ct_app_52508",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52508"
     },
     {
-      "id": "cmp_acme_ai_evt_06",
+      "id": "cmp_apple_vision_pro_evt_06",
       "tsMs": 1787130846120,
       "type": "research.completed",
-      "entityId": "ct_cmp_527bf",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_527bf"
+      "entityId": "ct_app_527bf",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_527bf"
     },
     {
-      "id": "cmp_acme_ai_evt_07",
+      "id": "cmp_apple_vision_pro_evt_07",
       "tsMs": 1787131080000,
       "type": "creative.generated",
-      "entityId": "ct_cmp_52a76",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52a76"
+      "entityId": "ct_app_52a76",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52a76"
     },
     {
-      "id": "cmp_acme_ai_evt_08",
+      "id": "cmp_apple_vision_pro_evt_08",
       "tsMs": 1787131086000,
       "type": "creative.accepted",
-      "entityId": "ct_cmp_52d2d",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52d2d"
+      "entityId": "ct_app_52d2d",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52d2d"
     },
     {
-      "id": "cmp_acme_ai_evt_09",
+      "id": "cmp_apple_vision_pro_evt_09",
       "tsMs": 1787131326000,
       "type": "campaign.approved",
-      "entityId": "ct_cmp_52fe4",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52fe4"
+      "entityId": "ct_app_52fe4",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52fe4"
     },
     {
-      "id": "cmp_acme_ai_evt_10",
+      "id": "cmp_apple_vision_pro_evt_10",
       "tsMs": 1787131326400,
       "type": "dsp.payload.pushed",
-      "entityId": "ct_cmp_5329b",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_5329b"
+      "entityId": "ct_app_5329b",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_5329b"
     },
     {
-      "id": "cmp_acme_ai_evt_11",
+      "id": "cmp_apple_vision_pro_evt_11",
       "tsMs": 1787131326900,
       "type": "campaign.activated",
-      "entityId": "ct_cmp_53552",
-      "campaignId": "cmp_acme_ai",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_53552"
+      "entityId": "ct_app_53552",
+      "campaignId": "cmp_apple_vision_pro",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_53552"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_01",
+      "id": "cmp_apple_music_evt_01",
       "tsMs": 1787396520000,
       "type": "campaign.created",
-      "entityId": "ct_cmp_51a2c",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_51a2c"
+      "entityId": "ct_app_51a2c",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51a2c"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_02",
+      "id": "cmp_apple_music_evt_02",
       "tsMs": 1787396520980,
       "type": "intake.brief.completed",
-      "entityId": "ct_cmp_51ce3",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_51ce3"
+      "entityId": "ct_app_51ce3",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51ce3"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_03",
+      "id": "cmp_apple_music_evt_03",
       "tsMs": 1787396521500,
       "type": "stage1.offer.classified",
-      "entityId": "ct_cmp_51f9a",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_51f9a"
+      "entityId": "ct_app_51f9a",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51f9a"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_04",
+      "id": "cmp_apple_music_evt_04",
       "tsMs": 1787396523100,
       "type": "stage1.channels.scored",
-      "entityId": "ct_cmp_52251",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52251"
+      "entityId": "ct_app_52251",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52251"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_05",
+      "id": "cmp_apple_music_evt_05",
       "tsMs": 1787396524700,
       "type": "stage2.rate_cards.cache_hit",
-      "entityId": "ct_cmp_52508",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52508"
+      "entityId": "ct_app_52508",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52508"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_06",
+      "id": "cmp_apple_music_evt_06",
       "tsMs": 1787396525200,
       "type": "stage2.scrape.failed",
-      "entityId": "ct_cmp_527bf",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_527bf"
+      "entityId": "ct_app_527bf",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_527bf"
     },
     {
-      "id": "cmp_molten_hot_sauce_evt_07",
+      "id": "cmp_apple_music_evt_07",
       "tsMs": 1787396525840,
       "type": "research.completed_partial",
-      "entityId": "ct_cmp_52a76",
-      "campaignId": "cmp_molten_hot_sauce",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_cmp_52a76"
+      "entityId": "ct_app_52a76",
+      "campaignId": "cmp_apple_music",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52a76"
     }
   ]
 }

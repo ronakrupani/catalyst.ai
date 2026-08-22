@@ -96,6 +96,22 @@ function audienceLean(brief: CampaignBrief): "b2b" | "consumer" {
 }
 
 function synthesizeResearch(brief: CampaignBrief, elapsedMs: number): ResearchResult {
+  // A recognised site brings its own channel set, so the demo reads as
+  // research about that business rather than a generic catalogue.
+  const profile = profileFor(brief.product_url);
+  if (profile) {
+    return {
+      channels: profile.channels.map((c, i) => ({
+        ...c,
+        rank: i + 1,
+        included: true,
+        source: "live" as const,
+      })),
+      platformsSearched: CATALOG.length,
+      elapsedMs,
+    };
+  }
+
   const lean = audienceLean(brief);
   const scored = [...CATALOG]
     .map((entry) => ({ entry, score: lean === "b2b" ? entry.b2b : entry.consumer }))
@@ -126,21 +142,124 @@ export interface ScrapeResult {
   prefilled: (keyof CampaignBrief)[];
 }
 
+/**
+ * What the Bright Data read would come back with, per site. The real scraper
+ * extracts this from the page; here a profile stands in so a demo against a
+ * known site produces a brief worth reading. Anything unrecognised falls back
+ * to the host name and an empty offer for the user to fill.
+ */
+interface SiteProfile {
+  match: RegExp;
+  brief: Partial<CampaignBrief>;
+  prefilled: (keyof CampaignBrief)[];
+  /** Channel set the stubbed Signal Engine returns for this site. */
+  channels: Omit<MatchedChannel, "rank" | "included" | "source">[];
+}
+
+const APPLE: SiteProfile = {
+  match: /(^|\.)apple\.com$/i,
+  brief: {
+    product_name: "Apple",
+    product_url: "https://apple.com",
+    offer_summary:
+      "iPhone, Mac, iPad and Watch, sold direct with trade-in and carrier financing.",
+    target_audience:
+      "Existing Apple owners on a two to three year upgrade cycle, plus Android switchers in their twenties and thirties.",
+  },
+  prefilled: ["product_name", "product_url", "offer_summary", "target_audience"],
+  channels: [
+    {
+      platform: "YouTube",
+      rationale:
+        "Launch films live here, and the audience searches for them by name within the hour.",
+      confidence: 0.94,
+      cpmLow: 14.2,
+      cpmHigh: 22.6,
+      adUnit: { w: 970, h: 250 },
+    },
+    {
+      platform: "Instagram",
+      rationale:
+        "Camera claims are judged here first. Reels carry the format the audience already watches.",
+      confidence: 0.91,
+      cpmLow: 11.8,
+      cpmHigh: 18.4,
+      adUnit: { w: 1080, h: 1080 },
+    },
+    {
+      platform: "TikTok",
+      rationale:
+        "Upgrade cycles are argued out in public here, and the younger half of the buyer sits on it.",
+      confidence: 0.86,
+      cpmLow: 7.4,
+      cpmHigh: 13.2,
+      adUnit: { w: 1080, h: 1920 },
+    },
+    {
+      platform: "Reddit",
+      rationale:
+        "r/apple and the carrier subreddits settle upgrade decisions before anyone reaches a store.",
+      confidence: 0.78,
+      cpmLow: 8.6,
+      cpmHigh: 13.9,
+      adUnit: { w: 300, h: 250 },
+    },
+    {
+      platform: "X",
+      rationale:
+        "Fast reach around launch events, though targeting has degraded and waste runs higher.",
+      confidence: 0.71,
+      cpmLow: 7.9,
+      cpmHigh: 12.8,
+      adUnit: { w: 300, h: 250 },
+    },
+    {
+      platform: "Meta Audience Network",
+      rationale:
+        "Cheapest incremental reach in the set. Weak on brand, right for retargeting the visits.",
+      confidence: 0.65,
+      cpmLow: 5.2,
+      cpmHigh: 9.4,
+      adUnit: { w: 300, h: 250 },
+    },
+  ],
+};
+
+const PROFILES: SiteProfile[] = [APPLE];
+
+function hostOf(url: string): string {
+  return url
+    .trim()
+    .replace(/^https?:\/\//i, "")
+    .replace(/\/.*$/, "")
+    .replace(/^www\./i, "")
+    .toLowerCase();
+}
+
+function profileFor(url: string): SiteProfile | undefined {
+  const host = hostOf(url);
+  return PROFILES.find((p) => p.match.test(host));
+}
+
 /** Bright Data page read. Stubbed; the real one fetches and extracts. */
 export async function scrapeSite(url: string): Promise<ScrapeResult> {
   await sleep(2200);
-  const host = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+  const profile = profileFor(url);
+  if (profile) {
+    return { ok: true, brief: profile.brief, prefilled: profile.prefilled };
+  }
+
+  // Unrecognised site: the host name is all the stub can honestly claim to
+  // have read, so the rest is left for the user.
+  const host = hostOf(url);
   const name = host.split(".")[0];
-  const product = name.charAt(0).toUpperCase() + name.slice(1);
   return {
     ok: true,
     brief: {
-      product_name: product,
-      product_url: url.startsWith("http") ? url : `https://${url}`,
-      offer_summary: `Automatic meeting notes and action items for engineering teams, wired into Linear and GitHub.`,
-      target_audience: `Engineering managers and staff engineers at 50 to 500 person software companies.`,
+      product_name: name.charAt(0).toUpperCase() + name.slice(1),
+      product_url: url.startsWith("http") ? url : `https://${host}`,
     },
-    prefilled: ["product_name", "product_url", "offer_summary", "target_audience"],
+    prefilled: ["product_name", "product_url"],
   };
 }
 

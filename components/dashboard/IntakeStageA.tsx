@@ -21,7 +21,7 @@ export function IntakeStageA({
   const [step, setStep] = useState(0);
   const [failed, setFailed] = useState<string | null>(null);
 
-  const host = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "") || "acme.ai";
+  const host = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "") || "apple.com";
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -105,7 +105,7 @@ export function IntakeStageA({
             type="text"
             inputMode="url"
             autoComplete="url"
-            placeholder="acme.ai"
+            placeholder="apple.com"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             className="ct-num"
