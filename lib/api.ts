@@ -11,6 +11,10 @@ import type {
 import rawProfiles from "@/fixtures/site-profiles.json";
 import {
   appendEvent,
+  removeCampaign,
+  restoreCampaign,
+  resetStore,
+  type RemovedCampaign,
   getCampaign,
   listCampaigns,
   listEvents,
@@ -314,6 +318,22 @@ export function advance(id: string, status: CampaignStatus) {
   if (!campaign) return;
   putCampaign({ ...campaign, status });
 }
+
+/** Removes a campaign and its events, returning enough to put it back. */
+export function deleteCampaign(id: string): RemovedCampaign | null {
+  return removeCampaign(id);
+}
+
+export function undoDelete(removed: RemovedCampaign) {
+  restoreCampaign(removed);
+}
+
+/** Drops every local change and returns to the shipped campaigns. */
+export function restoreShippedCampaigns() {
+  resetStore();
+}
+
+export type { RemovedCampaign };
 
 export function launchCampaign(id: string) {
   const campaign = getCampaign(id);

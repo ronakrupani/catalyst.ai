@@ -43,3 +43,11 @@ export function IconLogo() {
     </svg>
   );
 }
+
+export function IconTrash() {
+  return (
+    <svg {...base} aria-hidden="true" className="size-4">
+      <path d="M3.5 5.5h13M8 5.5V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.5M5 5.5l.7 10a1 1 0 0 0 1 .9h6.6a1 1 0 0 0 1-.9l.7-10" />
+    </svg>
+  );
+}

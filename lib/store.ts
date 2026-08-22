@@ -123,6 +123,33 @@ export function putCampaign(next: Campaign) {
   commit();
 }
 
+/** Everything needed to put a deleted campaign back exactly as it was. */
+export interface RemovedCampaign {
+  campaign: Campaign;
+  events: CampaignAuditEvent[];
+}
+
+export function removeCampaign(id: string): RemovedCampaign | null {
+  const snapshot = load();
+  const campaign = snapshot.campaigns.find((c) => c.id === id);
+  if (!campaign) return null;
+  const events = snapshot.events.filter((e) => e.campaignId === id);
+  snapshot.campaigns = snapshot.campaigns.filter((c) => c.id !== id);
+  snapshot.events = snapshot.events.filter((e) => e.campaignId !== id);
+  commit();
+  return { campaign, events };
+}
+
+export function restoreCampaign(removed: RemovedCampaign) {
+  const snapshot = load();
+  if (!snapshot.campaigns.some((c) => c.id === removed.campaign.id)) {
+    snapshot.campaigns.push(removed.campaign);
+  }
+  const known = new Set(snapshot.events.map((e) => e.id));
+  snapshot.events.push(...removed.events.filter((e) => !known.has(e.id)));
+  commit();
+}
+
 export function listEvents(campaignId?: string): CampaignAuditEvent[] {
   const all = load().events;
   const scoped = campaignId ? all.filter((e) => e.campaignId === campaignId) : all;
