@@ -786,3 +786,130 @@ button.ct-span { cursor: pointer; }
 @media (min-width: 640px) {
   .ct-wrap { padding-inline: var(--ct-space-6); }
 }
+
+/* ============================================================
+   Dashboard — pipeline stepper.
+   The waterfall rail's visual language applied to four stages of
+   work. Segments are equal width, not duration-scaled, because a
+   step is a stage and not a span. The research segment
+   subdivides into real spans while it runs.
+   ============================================================ */
+
+.ct-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ct-space-2);
+  width: 100%;
+}
+
+.ct-stepper__seg { min-width: 0; }
+
+.ct-stepper__label {
+  display: block;
+  margin-bottom: var(--ct-space-2);
+  text-transform: none;
+}
+
+.ct-stepper__seg[data-state="future"] .ct-stepper__label { color: var(--ct-ink-500); }
+.ct-stepper__seg[data-state="current"] .ct-stepper__label { color: var(--ct-slate-200); }
+
+.ct-stepper__bar {
+  position: relative;
+  display: block;
+  height: 8px;
+  border-radius: var(--ct-radius-xs);
+  background: var(--ct-ink-500);
+  overflow: hidden;
+}
+
+.ct-stepper__seg[data-state="done"] .ct-stepper__bar { background: var(--ct-violet-base); }
+
+.ct-stepper__seg[data-state="current"] .ct-stepper__bar {
+  background: var(--ct-violet-base);
+  box-shadow: var(--ct-glow-live);
+  animation: ct-pulse var(--ct-motion-pulse) ease-in-out infinite;
+}
+
+/* A step whose work failed keeps its segment on the rail, hatched. */
+.ct-stepper__seg[data-state="failed"] .ct-stepper__bar {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 3px, rgba(6, 7, 11, 0.55) 3px 5px),
+    var(--ct-red-base);
+  animation: none;
+  box-shadow: none;
+}
+
+.ct-stepper__spans {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+}
+
+.ct-stepper__span { background: var(--ct-violet-dim); }
+/* The rate-card pull touches live platforms, so it reads amber. */
+.ct-stepper__span:nth-child(1)[data-done],
+.ct-stepper__span:nth-child(2)[data-done] { background: var(--ct-violet-bright); }
+.ct-stepper__span:nth-child(3)[data-done] { background: var(--ct-sodium-base); }
+
+/* 24px progress rail for list rows. */
+.ct-steprow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  align-items: center;
+  height: 24px;
+  width: 96px;
+}
+
+.ct-steprow__seg {
+  height: 6px;
+  border-radius: var(--ct-radius-xs);
+  background: var(--ct-ink-500);
+}
+
+.ct-steprow__seg[data-state="done"] { background: var(--ct-violet-base); }
+.ct-steprow__seg[data-state="current"] { background: var(--ct-violet-bright); }
+
+/* Static skeleton: a placeholder at the real size, not a fifth animation. */
+.ct-skeleton { background: var(--ct-ink-300); }
+
+/* Motion budget: four transitions, all transform and opacity. */
+@keyframes ct-step-check {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes ct-row-enter {
+  from { opacity: 0; transform: translate3d(0, 6px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes ct-bar-rise {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+.ct-check-in { animation: ct-step-check var(--ct-motion-base) var(--ct-ease) both; }
+.ct-row-enter { animation: ct-row-enter var(--ct-motion-base) var(--ct-ease) both; }
+.ct-bar-rise { animation: ct-bar-rise var(--ct-motion-panel) var(--ct-ease) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-check-in,
+  .ct-row-enter,
+  .ct-bar-rise { animation: none; }
+  .ct-stepper__seg[data-state="current"] .ct-stepper__bar { animation: none; }
+}
+
+/* Dashboard shell. Icon rail, contextual column, content. */
+.ct-shell {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  min-height: 100dvh;
+}
+
+.ct-shell[data-context] {
+  grid-template-columns: 56px 264px minmax(0, 1fr);
+}

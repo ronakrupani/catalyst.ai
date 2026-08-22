@@ -39,9 +39,7 @@ export function Nav() {
               </a>
             ))}
             <Button asChild size="sm">
-              <Link href="/discover" prefetch={false}>
-                Launch app
-              </Link>
+              <Link href="/app">Start a campaign</Link>
             </Button>
           </div>
         </nav>

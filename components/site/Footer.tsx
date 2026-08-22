@@ -12,9 +12,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center gap-3">
           <Button asChild size="lg">
-            <Link href="/discover" prefetch={false}>
-              Find placements
-            </Link>
+            <Link href="/app">Start a campaign</Link>
           </Button>
           <a
             href="https://github.com/catalyst-ai/catalyst"
