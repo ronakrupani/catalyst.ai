@@ -1,0 +1,66 @@
+# catalyst.ai — marketing site
+
+Static Next.js site for catalyst.ai. The page replays one recorded pipeline run:
+Stage 1 reasons about a business and ranks channels, Stage 2 scrapes live ad
+platforms for real placements and real CPMs. Scroll position drives the run.
+
+```bash
+npm install && npm run dev
+```
+
+Then open http://localhost:3000.
+
+## Layout
+
+```
+app/            layout, page, globals.css (design tokens), OG image, icon
+components/
+  primitives/   WaterfallRail, PlacementCard, StageCard, ChannelRow,
+                StatusPill, MonoValue — no marketing-specific props, these
+                lift into the app repo unchanged
+  site/         Nav, Hero, ReplayDemo, StageSplit, AuditStream, CachedVsLive,
+                ConnectionsStrip, Footer, RunProvider — marketing composition
+  ui/           shadcn Button and Textarea, every colour and radius remapped
+                to ct- tokens
+lib/            types, format, replay, scroll, demo-run, connections, utils
+fixtures/       demo-run.json — one complete recorded run, all values numeric
+assets/         TTF fonts used only by the OG image renderer
+```
+
+## Design system
+
+`app/globals.css` holds the `--ct-*` tokens as the single source of truth. A
+Tailwind v4 `@theme inline` block mirrors them so utilities such as
+`bg-ink-100` and `text-violet-base` resolve through the same variables. The
+default Tailwind palette is reset, so no stock slate can leak in.
+
+Violet is always Stage 1, sodium amber is always Stage 2. Cached or degraded
+data is slate with a dashed border — never a live colour. Every machine-emitted
+value renders in JetBrains Mono with tabular figures; human-written labels are
+General Sans. Fonts are self-hosted through `next/font`.
+
+## The scroll layer
+
+Acts 1 and 2 pin with `position: sticky` only. Progress is a pure function of
+scroll position, written to a `--p` custom property and consumed by transform
+and opacity; React state changes only on discrete steps. With JavaScript
+disabled, before hydration, or under `prefers-reduced-motion`, every section
+renders complete in its finished state and the pins collapse.
+
+Exactly one element glows at any scroll position: the hero rail during Act 1,
+the docked rail through the middle, the live card in Cached vs live, and the
+done pill at the foot.
+
+## Fixture
+
+`fixtures/demo-run.json` carries spans, the Stage 1 profile with ranked
+channels, 12 placements, and the Port audit events. Every value is numeric —
+no `"$12–$18"`, no `"500k viewers"`. Formatting happens at render time in
+`lib/format.ts`. Types in `lib/types.ts` are shared with the app.
+
+## Notes
+
+- The nav's **Launch app** button routes to `/discover`, which the app repo
+  owns; it 404s in this repo alone.
+- The connections strip is static. There is no `/api/health` here, because
+  adding a route handler would opt the page out of static generation.

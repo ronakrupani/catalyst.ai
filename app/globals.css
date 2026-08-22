@@ -1,0 +1,762 @@
+@import "tailwindcss";
+
+/* ============================================================
+   catalyst.ai design tokens — source of truth.
+   Fonts are self-hosted via next/font (app/fonts.ts); the
+   --ct-font-*-src variables are supplied by the <html> class.
+   ============================================================ */
+
+:root {
+  --ct-ink-000: #06070b;
+  --ct-ink-050: #0a0c12;
+  --ct-ink-100: #10131b;
+  --ct-ink-200: #161a24;
+  --ct-ink-300: #1d222e;
+  --ct-ink-400: #262c3a;
+  --ct-ink-500: #333a4b;
+
+  --ct-slate-100: #edf0f7;
+  --ct-slate-200: #c2c9d8;
+  --ct-slate-300: #98a1b4;
+  /* Nudged from #6e7789, which measured 4.34:1 on the canvas and failed
+     the system's own 4.5:1 rule. This clears AA on ink-050 and ink-200. */
+  --ct-slate-400: #798294;
+  --ct-slate-500: #4b5364;
+
+  --ct-violet-bright: #c77dff;
+  --ct-violet-base: #b14cff;
+  --ct-violet-dim: #6d2ba8;
+  --ct-violet-wash: rgba(177, 76, 255, 0.12);
+
+  --ct-sodium-bright: #ffb84d;
+  --ct-sodium-base: #ff9f1c;
+  --ct-sodium-dim: #8a5410;
+  --ct-sodium-wash: rgba(255, 159, 28, 0.12);
+
+  --ct-green-bright: #6bffc4;
+  --ct-green-base: #2fe6a0;
+  --ct-green-dim: #14684a;
+  --ct-green-wash: rgba(47, 230, 160, 0.12);
+  --ct-red-bright: #ff8093;
+  --ct-red-base: #ff4d64;
+  --ct-red-dim: #8c2331;
+  --ct-red-wash: rgba(255, 77, 100, 0.12);
+
+  /* no warning hue by design. degraded = slate + dashed border. */
+
+  --ct-bg: var(--ct-ink-050);
+  --ct-bg-panel: var(--ct-ink-100);
+  --ct-bg-card: var(--ct-ink-200);
+  --ct-bg-hover: var(--ct-ink-300);
+  --ct-border: var(--ct-ink-300);
+  --ct-border-strong: var(--ct-ink-400);
+  --ct-border-active: var(--ct-ink-500);
+  --ct-text: var(--ct-slate-100);
+  --ct-text-secondary: var(--ct-slate-300);
+  --ct-text-muted: var(--ct-slate-400);
+  --ct-text-on-neon: var(--ct-ink-000);
+  --ct-stage-1: var(--ct-violet-base);
+  --ct-stage-2: var(--ct-sodium-base);
+  --ct-accent: var(--ct-violet-base);
+
+  --ct-chart-1: #b14cff;
+  --ct-chart-2: #ff9f1c;
+  --ct-chart-3: #2be8e0;
+  --ct-chart-4: #ff4d9d;
+  --ct-chart-5: #c9f24d;
+  --ct-chart-6: #6e7789;
+  --ct-chart-grid: rgba(237, 240, 247, 0.06);
+
+  --ct-font-display: var(--ct-font-display-src), "Archivo", "Helvetica Neue", sans-serif;
+  --ct-font-ui: var(--ct-font-ui-src), "General Sans", Inter, system-ui, sans-serif;
+  --ct-font-mono: var(--ct-font-mono-src), "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --ct-text-eyebrow: 0.6875rem;
+  --ct-text-label: 0.75rem;
+  --ct-text-body-sm: 0.8125rem;
+  --ct-text-body: 0.875rem;
+  --ct-text-body-lg: 1rem;
+  --ct-text-title: 1.25rem;
+  --ct-text-headline: 1.75rem;
+  --ct-text-metric: 2.125rem;
+  --ct-text-hero: 3rem;
+
+  --ct-space-1: 0.25rem;
+  --ct-space-2: 0.5rem;
+  --ct-space-3: 0.75rem;
+  --ct-space-4: 1rem;
+  --ct-space-5: 1.25rem;
+  --ct-space-6: 1.5rem;
+  --ct-space-7: 2rem;
+  --ct-space-8: 2.5rem;
+  --ct-space-9: 3rem;
+  --ct-space-10: 4rem;
+
+  --ct-radius-xs: 4px;
+  --ct-radius-sm: 8px;
+  --ct-radius-md: 12px;
+  --ct-radius-lg: 16px;
+  --ct-radius-full: 999px;
+
+  --ct-elev-2-inset: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --ct-elev-3-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+
+  --ct-glow-live: 0 0 0 1px rgba(255, 159, 28, 0.5), 0 0 24px -4px rgba(255, 159, 28, 0.45);
+  --ct-glow-focus: 0 0 0 2px var(--ct-ink-050), 0 0 0 4px rgba(177, 76, 255, 0.7);
+
+  --ct-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ct-motion-micro: 120ms;
+  --ct-motion-base: 180ms;
+  --ct-motion-panel: 260ms;
+  --ct-motion-pulse: 2000ms;
+
+  --ct-content-max: 1440px;
+  /* The app canvas is 1440. The marketing page reads at a tighter measure so
+     prose and dense rows do not run edge to edge on a wide display. */
+  --ct-site-max: 1120px;
+}
+
+html {
+  background: var(--ct-bg);
+  color-scheme: dark;
+  /* Nothing on this page may scroll sideways. */
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+  background: var(--ct-bg);
+  color: var(--ct-text);
+  font-family: var(--ct-font-ui);
+  font-size: var(--ct-text-body);
+  line-height: 1.571;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ct-num, .ct-mono, code, kbd, pre {
+  font-family: var(--ct-font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "zero" 1;
+}
+
+.ct-display {
+  font-family: var(--ct-font-display);
+  font-variation-settings: "wdth" 112;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ct-eyebrow {
+  font-family: var(--ct-font-mono);
+  font-size: var(--ct-text-eyebrow);
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ct-text-muted);
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: var(--ct-glow-focus);
+  border-radius: var(--ct-radius-sm);
+}
+
+.ct-cached {
+  color: var(--ct-slate-300);
+  border: 1px dashed var(--ct-ink-500);
+  background: none;
+}
+
+.ct-live {
+  box-shadow: var(--ct-glow-live);
+  animation: ct-pulse var(--ct-motion-pulse) ease-in-out infinite;
+}
+
+@keyframes ct-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ct-live { animation: none; opacity: 1; }
+}
+
+/* ============================================================
+   Elevation ladder — design system 2.4.
+   Borders are 1px and always visible; on dark the hairline does
+   the work a shadow does on light.
+   ============================================================ */
+
+.ct-elev-1 { background: var(--ct-bg-panel); border: 1px solid var(--ct-border); }
+.ct-elev-2 {
+  background: var(--ct-bg-card);
+  border: 1px solid var(--ct-border-strong);
+  box-shadow: var(--ct-elev-2-inset);
+}
+.ct-elev-3 {
+  background: var(--ct-bg-card);
+  border: 1px solid var(--ct-border-active);
+  box-shadow: var(--ct-elev-3-shadow);
+}
+
+/* ============================================================
+   Tailwind v4 theme mirror.
+   `inline` makes utilities resolve through the --ct-* variables
+   above, so those stay the single source of truth. The default
+   palette is reset first: no stock slate can leak in.
+   ============================================================ */
+
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --text-*: initial;
+  --ease-*: initial;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-inherit: inherit;
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-ink-000: var(--ct-ink-000);
+  --color-ink-050: var(--ct-ink-050);
+  --color-ink-100: var(--ct-ink-100);
+  --color-ink-200: var(--ct-ink-200);
+  --color-ink-300: var(--ct-ink-300);
+  --color-ink-400: var(--ct-ink-400);
+  --color-ink-500: var(--ct-ink-500);
+
+  --color-slate-100: var(--ct-slate-100);
+  --color-slate-200: var(--ct-slate-200);
+  --color-slate-300: var(--ct-slate-300);
+  --color-slate-400: var(--ct-slate-400);
+  --color-slate-500: var(--ct-slate-500);
+
+  --color-violet-bright: var(--ct-violet-bright);
+  --color-violet-base: var(--ct-violet-base);
+  --color-violet-dim: var(--ct-violet-dim);
+  --color-violet-wash: var(--ct-violet-wash);
+
+  --color-sodium-bright: var(--ct-sodium-bright);
+  --color-sodium-base: var(--ct-sodium-base);
+  --color-sodium-dim: var(--ct-sodium-dim);
+  --color-sodium-wash: var(--ct-sodium-wash);
+
+  --color-green-bright: var(--ct-green-bright);
+  --color-green-base: var(--ct-green-base);
+  --color-green-dim: var(--ct-green-dim);
+  --color-green-wash: var(--ct-green-wash);
+
+  --color-red-bright: var(--ct-red-bright);
+  --color-red-base: var(--ct-red-base);
+  --color-red-dim: var(--ct-red-dim);
+  --color-red-wash: var(--ct-red-wash);
+
+  --color-bg: var(--ct-bg);
+  --color-panel: var(--ct-bg-panel);
+  --color-card: var(--ct-bg-card);
+  --color-hover: var(--ct-bg-hover);
+  --color-border: var(--ct-border);
+  --color-border-strong: var(--ct-border-strong);
+  --color-border-active: var(--ct-border-active);
+  --color-text: var(--ct-text);
+  --color-text-secondary: var(--ct-text-secondary);
+  --color-text-muted: var(--ct-text-muted);
+  --color-text-on-neon: var(--ct-text-on-neon);
+  --color-stage-1: var(--ct-stage-1);
+  --color-stage-2: var(--ct-stage-2);
+  --color-accent: var(--ct-accent);
+
+  --color-chart-1: var(--ct-chart-1);
+  --color-chart-2: var(--ct-chart-2);
+  --color-chart-3: var(--ct-chart-3);
+  --color-chart-4: var(--ct-chart-4);
+  --color-chart-5: var(--ct-chart-5);
+  --color-chart-6: var(--ct-chart-6);
+  --color-chart-grid: var(--ct-chart-grid);
+
+  --font-display: var(--ct-font-display);
+  --font-ui: var(--ct-font-ui);
+  --font-mono: var(--ct-font-mono);
+
+  --text-eyebrow: var(--ct-text-eyebrow);
+  --text-label: var(--ct-text-label);
+  --text-body-sm: var(--ct-text-body-sm);
+  --text-body: var(--ct-text-body);
+  --text-body-lg: var(--ct-text-body-lg);
+  --text-title: var(--ct-text-title);
+  --text-headline: var(--ct-text-headline);
+  --text-metric: var(--ct-text-metric);
+  --text-hero: var(--ct-text-hero);
+
+  --radius-xs: var(--ct-radius-xs);
+  --radius-sm: var(--ct-radius-sm);
+  --radius-md: var(--ct-radius-md);
+  --radius-lg: var(--ct-radius-lg);
+  --radius-full: var(--ct-radius-full);
+
+  --ease-ct: var(--ct-ease);
+
+  --container-content: var(--ct-content-max);
+}
+
+/* ============================================================
+   Waterfall rail — design system 2.6.
+   Positions are --start / --len percentages so the horizontal
+   track and the mobile vertical spine share one set of markup.
+   ============================================================ */
+
+/* No `--p` default here: setting it would shadow an ancestor's value and
+   break the docked rail, which inherits progress from the page region. The
+   fallback lives in the veil's var() call instead. */
+.ct-rail { width: 100%; }
+
+.ct-rail__track {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  background: var(--ct-ink-100);
+  border: 1px solid var(--ct-border);
+  border-radius: var(--ct-radius-sm);
+  overflow: hidden;
+}
+
+.ct-rail--compact .ct-rail__track { height: 24px; }
+
+.ct-span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--start);
+  width: var(--len);
+  display: block;
+  padding: 0;
+  background: none;
+  border: 0;
+  container-type: inline-size;
+  text-align: left;
+}
+
+button.ct-span { cursor: pointer; }
+
+.ct-span__bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 1px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: var(--ct-radius-xs);
+  opacity: 0.9;
+  transition: opacity var(--ct-motion-micro) var(--ct-ease);
+}
+
+.ct-span__bar[data-stage="1"] { background: var(--ct-violet-base); }
+.ct-span__bar[data-stage="2"] { background: var(--ct-sodium-base); }
+
+/* A failed span keeps its full width on the rail — never collapsed out of
+   the timeline (rule 2.7.4). The hatch carries the meaning, not just the hue. */
+.ct-span__bar[data-status="failed"] {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 3px,
+      rgba(6, 7, 11, 0.55) 3px 5px
+    ),
+    var(--ct-red-base);
+}
+
+/* Degraded is a texture, not a hue. */
+.ct-span__bar[data-status="cached"] {
+  background: var(--ct-slate-500);
+  outline: 1px dashed var(--ct-ink-500);
+  outline-offset: 0;
+  opacity: 1;
+}
+
+.ct-span__bar[data-status="pending"] { opacity: 0.18; }
+
+.ct-span__bar[data-live] {
+  opacity: 1;
+  box-shadow: var(--ct-glow-live);
+  animation: ct-pulse var(--ct-motion-pulse) ease-in-out infinite;
+}
+
+.ct-span__label,
+.ct-span__dur {
+  position: absolute;
+  left: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ct-slate-400);
+  opacity: 0;
+  transition: opacity var(--ct-motion-micro) var(--ct-ease);
+  pointer-events: none;
+}
+
+/* Span names render exactly as emitted — never upper-cased by the eyebrow
+   style, which would be prettifying an identifier (rule 2.7.3). */
+.ct-span__label {
+  top: 4px;
+  text-transform: none;
+  padding-right: var(--ct-space-2);
+}
+
+.ct-span__dur {
+  bottom: 4px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+/* Labels ride along only when the span is wide enough to hold a readable
+   amount of the identifier; narrower spans reveal theirs on hover. */
+@container (min-width: 160px) {
+  .ct-rail--full .ct-span__label,
+  .ct-rail--full .ct-span__dur { opacity: 1; }
+}
+
+.ct-rail--full .ct-span:hover .ct-span__label,
+.ct-rail--full .ct-span:hover .ct-span__dur,
+.ct-rail--full .ct-span:focus-visible .ct-span__label,
+.ct-rail--full .ct-span:focus-visible .ct-span__dur { opacity: 1; }
+
+.ct-rail--compact .ct-span__label,
+.ct-rail--compact .ct-span__dur { display: none; }
+
+.ct-span[data-selected] .ct-span__bar { outline: 1px solid var(--ct-slate-100); }
+.ct-span[data-highlighted] .ct-span__bar {
+  outline: 1px solid var(--ct-slate-200);
+  opacity: 1;
+}
+
+.ct-rail__veil {
+  position: absolute;
+  inset: 0;
+  background: var(--ct-ink-100);
+  transform: translate3d(calc(var(--p, 1) * 100%), 0, 0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ---- Mobile: the full rail rotates to a spine and fills downward.
+   The docked rail stays horizontal — it is the page scroll indicator. ---- */
+@media (max-width: 767px) {
+  .ct-rail--full { height: 100%; }
+
+  .ct-rail--full .ct-rail__track {
+    height: 100%;
+    width: 8px;
+    border-radius: var(--ct-radius-full);
+  }
+
+  .ct-rail--full .ct-span {
+    top: var(--start);
+    left: 0;
+    right: 0;
+    bottom: auto;
+    height: var(--len);
+    width: auto;
+    container-type: normal;
+  }
+
+  .ct-rail--full .ct-span__bar {
+    top: 0;
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    height: auto;
+    margin-top: 0;
+    border-radius: var(--ct-radius-full);
+  }
+
+  .ct-span__label,
+  .ct-span__dur { display: none; }
+
+  .ct-rail--full .ct-rail__veil {
+    transform: translate3d(0, calc(var(--p, 1) * 100%), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-rail__veil { transform: translate3d(100%, 0, 0) !important; }
+  .ct-span__bar[data-live] { animation: none; opacity: 1; }
+}
+
+/* ============================================================
+   Nav — opacity-only scroll response.
+   The blur is constant; only the fill and hairline ramp in, so
+   nothing animates a filter.
+   ============================================================ */
+
+.ct-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+.ct-nav__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--ct-ink-050);
+  border-bottom: 1px solid var(--ct-border);
+  opacity: 0.92;
+}
+
+@supports (animation-timeline: scroll()) {
+  .ct-nav__bg {
+    opacity: 0.72;
+    animation: ct-nav-settle linear both;
+    animation-timeline: scroll();
+    animation-range: 0 96px;
+  }
+}
+
+@keyframes ct-nav-settle {
+  from { opacity: 0.72; }
+  to { opacity: 0.96; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-nav__bg { animation: none; opacity: 0.92; }
+}
+
+/* ============================================================
+   Pinned acts — sticky only. Nothing here touches wheel events,
+   scroll distance, or scroll behaviour.
+   ============================================================ */
+
+[data-pin] { position: relative; }
+
+/* Height of the docked rail, so pinned content below it clears the spine. */
+:root { --ct-dock-h: 41px; }
+
+[data-pin-inner] {
+  position: sticky;
+  top: 56px;
+  min-height: calc(100dvh - 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-pin="act1"] { height: 220vh; }
+[data-pin="act2"] { height: 160vh; }
+
+/* Act 2 sits below the docked rail, so its sticky inner starts under it. */
+[data-pin="act2"] [data-pin-inner] {
+  top: calc(56px + var(--ct-dock-h));
+  min-height: calc(100dvh - 56px - var(--ct-dock-h));
+}
+
+/* Anchored sections must not land under the nav and the spine. */
+[id="how-it-works"],
+[id="audit-trail"] { scroll-margin-top: calc(56px + var(--ct-dock-h)); }
+
+@media (max-width: 767px) {
+  /* Pin distances halve on mobile. */
+  [data-pin="act1"] { height: 110vh; }
+  /* Act 2 does not pin horizontally on mobile; it stacks. */
+  [data-pin="act2"] { height: auto; }
+  [data-pin="act2"] [data-pin-inner] {
+    position: static;
+    min-height: 0;
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Pins collapse: no dead scroll over a static image. Every act renders
+     resolved at its natural height. */
+  [data-pin] { height: auto !important; }
+  [data-pin-inner] {
+    position: static !important;
+    min-height: 0 !important;
+    display: block !important;
+  }
+}
+
+/* ============================================================
+   Act 1 run body.
+   Mobile puts the spine on the left edge and lets it fill
+   downward; from 768 up the rail returns to a horizontal track
+   above the results.
+   ============================================================ */
+
+.ct-runbody {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  gap: var(--ct-space-4);
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .ct-runbody {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ct-space-5);
+  }
+}
+
+.ct-stream {
+  display: flex;
+  flex-direction: column;
+}
+
+.ct-stream__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ct-space-3);
+  padding: var(--ct-space-2) 0;
+  border-top: 1px solid var(--ct-border);
+  animation: ct-row-in var(--ct-motion-base) var(--ct-ease) both;
+}
+
+.ct-stream__row:first-child { border-top: 0; }
+
+@keyframes ct-row-in {
+  from { opacity: 0; transform: translate3d(0, 4px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Resolves as the run closes. Reads off the inherited scroll position, so it
+   costs no React render and rewinds exactly when you scroll back up. */
+.ct-summary {
+  opacity: calc((var(--p, 1) - 0.88) * 8.4);
+  transform: translate3d(0, calc((1 - var(--p, 1)) * 6px), 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-stream__row { animation: none; }
+  .ct-summary { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   Act 2 — the stage split.
+   `--wipe` remaps the back half of the act's scroll onto 0..1,
+   so the channel rows resolve first and the divider then travels
+   right with the amber panel appearing behind it.
+   ============================================================ */
+
+.ct-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--ct-space-6);
+}
+
+@media (min-width: 768px) {
+  .ct-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+.ct-split__panel { min-width: 0; }
+
+.ct-split__panel--wipe {
+  position: relative;
+  /* clip, not hidden: contains the veil and divider as they travel right
+     without creating a scroll container. */
+  overflow: clip;
+  --wipe: clamp(0, calc((var(--p, 1) - 0.45) / 0.55), 1);
+}
+
+.ct-split__veil {
+  position: absolute;
+  inset: -4px;
+  background: var(--ct-bg);
+  transform: translate3d(calc(var(--wipe) * 100%), 0, 0);
+  pointer-events: none;
+}
+
+/* The divider is the same stage boundary the docked rail shows, so the two
+   read as one moving front. */
+.ct-split__divider {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  width: 2px;
+  background: var(--ct-sodium-base);
+  opacity: calc(1 - var(--wipe));
+  transform: translate3d(calc(var(--wipe) * 100%), 0, 0);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  /* Stacks, does not pin, colour assignment preserved. */
+  .ct-split__panel--wipe { --wipe: 1; }
+  .ct-split__veil,
+  .ct-split__divider { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-split__panel--wipe { --wipe: 1 !important; }
+  .ct-split__veil,
+  .ct-split__divider { display: none; }
+}
+
+/* ============================================================
+   Act 3 — the Port event stream.
+   Rows reveal on entering the viewport with a native view()
+   timeline: no JavaScript, no pin, and space reserved up front
+   so nothing shifts. Where view() is unsupported the rows are
+   simply present, which is the correct finished state.
+   ============================================================ */
+
+.ct-log { display: flex; flex-direction: column; }
+
+.ct-log__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ct-space-3);
+  min-height: 48px;
+  padding: var(--ct-space-2) var(--ct-space-2);
+  border-top: 1px solid var(--ct-border);
+  border-radius: var(--ct-radius-xs);
+  transition: background-color var(--ct-motion-base) var(--ct-ease);
+}
+
+.ct-log__row[data-on] { background: var(--ct-ink-200); }
+
+@supports (animation-timeline: view()) {
+  .ct-log__row {
+    animation: ct-log-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+@keyframes ct-log-in {
+  from { opacity: 0; transform: translate3d(0, 4px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-log__row { animation: none; opacity: 1; transform: none; }
+}
+
+/* Narrow screens: the log row folds to two lines rather than forcing the
+   grid track wider than the viewport. */
+@media (max-width: 639px) {
+  .ct-log__row { flex-wrap: wrap; }
+  .ct-log__row > :nth-child(2) { flex-basis: 100%; order: 3; }
+}
+
+/* Narrow screens show a shorter tail so the pinned hero still fits the
+   viewport; the counter continues to report the full set. */
+@media (max-width: 767px) {
+  .ct-stream { min-height: 108px !important; }
+  .ct-stream__row:nth-last-child(n + 4) { display: none; }
+}
+
+/* Site container. Narrower than the 1440 app canvas by design. */
+.ct-wrap {
+  width: 100%;
+  max-width: var(--ct-site-max);
+  margin-inline: auto;
+  padding-inline: var(--ct-space-4);
+}
+
+@media (min-width: 640px) {
+  .ct-wrap { padding-inline: var(--ct-space-6); }
+}

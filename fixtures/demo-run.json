@@ -1,0 +1,660 @@
+{
+  "runId": "run_7f3a91c4",
+  "startedAtMs": 1773238927000,
+  "totalDurationMs": 12960,
+  "platformsSearched": 6,
+  "spans": [
+    {
+      "id": "sp_01",
+      "name": "stage1.parse_description",
+      "stage": 1,
+      "startMs": 0,
+      "durationMs": 340,
+      "status": "done"
+    },
+    {
+      "id": "sp_02",
+      "name": "stage1.infer_audience",
+      "stage": 1,
+      "startMs": 340,
+      "durationMs": 1180,
+      "status": "done"
+    },
+    {
+      "id": "sp_03",
+      "name": "stage1.enrich_demographics",
+      "stage": 1,
+      "startMs": 1520,
+      "durationMs": 760,
+      "status": "done"
+    },
+    {
+      "id": "sp_04",
+      "name": "stage1.rank_channels",
+      "stage": 1,
+      "startMs": 2280,
+      "durationMs": 940,
+      "status": "done"
+    },
+    {
+      "id": "sp_05",
+      "name": "stage1.emit_profile",
+      "stage": 1,
+      "startMs": 3220,
+      "durationMs": 180,
+      "status": "done"
+    },
+    {
+      "id": "sp_06",
+      "name": "stage2.inventory_discovery.scrape_twitch",
+      "stage": 2,
+      "startMs": 3400,
+      "durationMs": 1740,
+      "status": "done"
+    },
+    {
+      "id": "sp_07",
+      "name": "stage2.inventory_discovery.scrape_youtube",
+      "stage": 2,
+      "startMs": 5140,
+      "durationMs": 1580,
+      "status": "done"
+    },
+    {
+      "id": "sp_08",
+      "name": "stage2.inventory_discovery.scrape_reddit_ads",
+      "stage": 2,
+      "startMs": 6720,
+      "durationMs": 1260,
+      "status": "done"
+    },
+    {
+      "id": "sp_09",
+      "name": "stage2.inventory_discovery.scrape_openx",
+      "stage": 2,
+      "startMs": 7980,
+      "durationMs": 1340,
+      "status": "done"
+    },
+    {
+      "id": "sp_10",
+      "name": "stage2.inventory_discovery.scrape_spotify",
+      "stage": 2,
+      "startMs": 9320,
+      "durationMs": 1040,
+      "status": "cached"
+    },
+    {
+      "id": "sp_11",
+      "name": "stage2.inventory_discovery.scrape_tiktok",
+      "stage": 2,
+      "startMs": 10360,
+      "durationMs": 660,
+      "status": "failed"
+    },
+    {
+      "id": "sp_12",
+      "name": "stage2.normalize_cpm",
+      "stage": 2,
+      "startMs": 11020,
+      "durationMs": 680,
+      "status": "done"
+    },
+    {
+      "id": "sp_13",
+      "name": "stage2.score_fit",
+      "stage": 2,
+      "startMs": 11700,
+      "durationMs": 1020,
+      "status": "done"
+    },
+    {
+      "id": "sp_14",
+      "name": "stage2.emit_placements",
+      "stage": 2,
+      "startMs": 12720,
+      "durationMs": 240,
+      "status": "done"
+    }
+  ],
+  "profile": {
+    "segment": "Competitive gaming enthusiasts with high functional-beverage intent",
+    "ageRange": [
+      18,
+      27
+    ],
+    "geos": [
+      "US",
+      "CA",
+      "GB",
+      "DE",
+      "KR"
+    ],
+    "interests": [
+      "Esports viewership",
+      "PC gaming hardware",
+      "Energy and functional drinks",
+      "Streaming subscriptions",
+      "Late-night play sessions"
+    ],
+    "channels": [
+      {
+        "rank": 1,
+        "platform": "Twitch",
+        "confidence": 0.94,
+        "rationale": "Live esports viewership with proven endemic demand."
+      },
+      {
+        "rank": 2,
+        "platform": "YouTube",
+        "confidence": 0.9,
+        "rationale": "Largest VOD esports reach. Bumpers suit impulse buys."
+      },
+      {
+        "rank": 3,
+        "platform": "Reddit",
+        "confidence": 0.86,
+        "rationale": "Small communities, highest stated purchase intent."
+      },
+      {
+        "rank": 4,
+        "platform": "Spotify",
+        "confidence": 0.79,
+        "rationale": "Reaches the session when no screen is available."
+      },
+      {
+        "rank": 5,
+        "platform": "Discord",
+        "confidence": 0.72,
+        "rationale": "Strong presence, thin programmatic inventory."
+      },
+      {
+        "rank": 6,
+        "platform": "TikTok",
+        "confidence": 0.68,
+        "rationale": "Growing gaming vertical, skews younger than target."
+      }
+    ]
+  },
+  "placements": [
+    {
+      "id": "plc_01",
+      "publisher": "Twitch",
+      "name": "twitch.homepage_headliner",
+      "platform": "Twitch",
+      "format": {
+        "w": 970,
+        "h": 250
+      },
+      "reachCount": 8400000,
+      "cpmLow": 18.5,
+      "cpmHigh": 21,
+      "fitScore": 0.94,
+      "sourceBadge": "live",
+      "rationale": "Highest-intent surface on the platform, and priced like it.",
+      "spanId": "sp_06"
+    },
+    {
+      "id": "plc_02",
+      "publisher": "Twitch",
+      "name": "twitch.pre_roll_gaming_vertical",
+      "platform": "Twitch",
+      "format": {
+        "seconds": 15
+      },
+      "reachCount": 12100000,
+      "cpmLow": 14.2,
+      "cpmHigh": 19.8,
+      "fitScore": 0.91,
+      "sourceBadge": "live",
+      "rationale": "Unskippable pre-roll on the gaming vertical. Caps at three a day.",
+      "spanId": "sp_06"
+    },
+    {
+      "id": "plc_03",
+      "publisher": "Twitch",
+      "name": "twitch.medium_rect_channel_page",
+      "platform": "Twitch",
+      "format": {
+        "w": 300,
+        "h": 250
+      },
+      "reachCount": 5600000,
+      "cpmLow": 8.9,
+      "cpmHigh": 12.4,
+      "fitScore": 0.82,
+      "sourceBadge": "live",
+      "rationale": "Persistent unit beside the player. Cheapest way onto Twitch.",
+      "spanId": "sp_06"
+    },
+    {
+      "id": "plc_04",
+      "publisher": "YouTube",
+      "name": "youtube.bumper_gaming_lineup",
+      "platform": "YouTube",
+      "format": {
+        "seconds": 6
+      },
+      "reachCount": 22400000,
+      "cpmLow": 9.6,
+      "cpmHigh": 13.1,
+      "fitScore": 0.88,
+      "sourceBadge": "live",
+      "rationale": "Six seconds is enough for a can and a logo. Broadest reach here.",
+      "spanId": "sp_07"
+    },
+    {
+      "id": "plc_05",
+      "publisher": "YouTube",
+      "name": "youtube.in_stream_skippable_esports",
+      "platform": "YouTube",
+      "format": {
+        "seconds": 15
+      },
+      "reachCount": 18900000,
+      "cpmLow": 11.3,
+      "cpmHigh": 16.75,
+      "fitScore": 0.9,
+      "sourceBadge": "live",
+      "rationale": "Runs against tournament VODs. You pay on view, so weak creative costs less.",
+      "spanId": "sp_07"
+    },
+    {
+      "id": "plc_06",
+      "publisher": "YouTube",
+      "name": "youtube.display_companion_banner",
+      "platform": "YouTube",
+      "format": {
+        "w": 300,
+        "h": 60
+      },
+      "reachCount": 6200000,
+      "cpmLow": 6.4,
+      "cpmHigh": 9.2,
+      "fitScore": 0.71,
+      "sourceBadge": "live",
+      "rationale": "Companion banner. Worth buying only alongside the in-stream units.",
+      "spanId": "sp_07"
+    },
+    {
+      "id": "plc_07",
+      "publisher": "Reddit",
+      "name": "reddit.r_esports_promoted_post",
+      "platform": "Reddit",
+      "format": {
+        "w": 600,
+        "h": 500
+      },
+      "reachCount": 3100000,
+      "cpmLow": 7.8,
+      "cpmHigh": 11.4,
+      "fitScore": 0.86,
+      "sourceBadge": "live",
+      "rationale": "Promoted post in r/esports. Comments stay open, which cuts both ways.",
+      "spanId": "sp_08"
+    },
+    {
+      "id": "plc_08",
+      "publisher": "Reddit",
+      "name": "reddit.r_leagueoflegends_takeover",
+      "platform": "Reddit",
+      "format": {
+        "w": 728,
+        "h": 90
+      },
+      "reachCount": 1940000,
+      "cpmLow": 6.9,
+      "cpmHigh": 10.2,
+      "fitScore": 0.79,
+      "sourceBadge": "live",
+      "rationale": "Subreddit takeover during split weeks. Small reach, exactly your buyer.",
+      "spanId": "sp_08"
+    },
+    {
+      "id": "plc_09",
+      "publisher": "OpenX",
+      "name": "openx.dexerto_leaderboard",
+      "platform": "Dexerto",
+      "format": {
+        "w": 728,
+        "h": 90
+      },
+      "reachCount": 2700000,
+      "cpmLow": 6.4,
+      "cpmHigh": 9.8,
+      "fitScore": 0.74,
+      "sourceBadge": "live",
+      "rationale": "Leaderboard on an endemic esports publisher. Cheapest CPM in the set.",
+      "spanId": "sp_09"
+    },
+    {
+      "id": "plc_10",
+      "publisher": "OpenX",
+      "name": "openx.hltv_sidebar_mrec",
+      "platform": "HLTV",
+      "format": {
+        "w": 300,
+        "h": 250
+      },
+      "reachCount": 1480000,
+      "cpmLow": 7.2,
+      "cpmHigh": 10.6,
+      "fitScore": 0.77,
+      "sourceBadge": "live",
+      "rationale": "Sidebar on a Counter-Strike results site. Long sessions, repeat exposure.",
+      "spanId": "sp_09"
+    },
+    {
+      "id": "plc_11",
+      "publisher": "Spotify",
+      "name": "spotify.gaming_playlist_audio_15s",
+      "platform": "Spotify",
+      "format": {
+        "seconds": 15
+      },
+      "reachCount": 9300000,
+      "cpmLow": 12,
+      "cpmHigh": 15.5,
+      "fitScore": 0.83,
+      "sourceBadge": "cached",
+      "cachedAtMs": 1773223387000,
+      "rationale": "Audio against gaming playlists. Reaches sessions with no screen to spare.",
+      "spanId": "sp_10"
+    },
+    {
+      "id": "plc_12",
+      "publisher": "Spotify",
+      "name": "spotify.podcast_midroll_esports",
+      "platform": "Spotify",
+      "format": {
+        "seconds": 30
+      },
+      "reachCount": 2260000,
+      "cpmLow": 16.4,
+      "cpmHigh": 20.1,
+      "fitScore": 0.8,
+      "sourceBadge": "cached",
+      "cachedAtMs": 1773223387000,
+      "rationale": "Host-read midroll on esports podcasts. The only unit with an endorsement.",
+      "spanId": "sp_10"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_01",
+      "tsMs": 1773238927000,
+      "type": "run.created",
+      "entityId": "ct_run_4f580c",
+      "spanId": "sp_01",
+      "portUrl": "https://app.getport.io/entity/catalyst_run/ct_run_4f580c"
+    },
+    {
+      "id": "evt_02",
+      "tsMs": 1773238927004,
+      "type": "stage1.span.opened",
+      "entityId": "ct_span_4f7587",
+      "spanId": "sp_01",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_4f7587"
+    },
+    {
+      "id": "evt_03",
+      "tsMs": 1773238927340,
+      "type": "stage1.description.parsed",
+      "entityId": "ct_span_4f9302",
+      "spanId": "sp_01",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_4f9302"
+    },
+    {
+      "id": "evt_04",
+      "tsMs": 1773238927346,
+      "type": "stage1.span.opened",
+      "entityId": "ct_span_4fb07d",
+      "spanId": "sp_02",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_4fb07d"
+    },
+    {
+      "id": "evt_05",
+      "tsMs": 1773238928520,
+      "type": "stage1.audience.inferred",
+      "entityId": "ct_span_4fcdf8",
+      "spanId": "sp_02",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_4fcdf8"
+    },
+    {
+      "id": "evt_06",
+      "tsMs": 1773238928526,
+      "type": "stage1.span.opened",
+      "entityId": "ct_span_4feb73",
+      "spanId": "sp_03",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_4feb73"
+    },
+    {
+      "id": "evt_07",
+      "tsMs": 1773238929280,
+      "type": "stage1.demographics.enriched",
+      "entityId": "ct_span_5008ee",
+      "spanId": "sp_03",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_5008ee"
+    },
+    {
+      "id": "evt_08",
+      "tsMs": 1773238929286,
+      "type": "stage1.span.opened",
+      "entityId": "ct_span_502669",
+      "spanId": "sp_04",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_502669"
+    },
+    {
+      "id": "evt_09",
+      "tsMs": 1773238930220,
+      "type": "stage1.channels.ranked",
+      "entityId": "ct_span_5043e4",
+      "spanId": "sp_04",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_5043e4"
+    },
+    {
+      "id": "evt_10",
+      "tsMs": 1773238930400,
+      "type": "stage1.profile.emitted",
+      "entityId": "ct_profile_50615f",
+      "spanId": "sp_05",
+      "portUrl": "https://app.getport.io/entity/catalyst_profile/ct_profile_50615f"
+    },
+    {
+      "id": "evt_11",
+      "tsMs": 1773238930406,
+      "type": "stage2.span.opened",
+      "entityId": "ct_span_507eda",
+      "spanId": "sp_06",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_507eda"
+    },
+    {
+      "id": "evt_12",
+      "tsMs": 1773238931180,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_509c55",
+      "spanId": "sp_06",
+      "placementId": "plc_01",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_509c55"
+    },
+    {
+      "id": "evt_13",
+      "tsMs": 1773238931620,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_50b9d0",
+      "spanId": "sp_06",
+      "placementId": "plc_02",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_50b9d0"
+    },
+    {
+      "id": "evt_14",
+      "tsMs": 1773238932140,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_50d74b",
+      "spanId": "sp_06",
+      "placementId": "plc_03",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_50d74b"
+    },
+    {
+      "id": "evt_15",
+      "tsMs": 1773238932146,
+      "type": "stage2.span.opened",
+      "entityId": "ct_span_50f4c6",
+      "spanId": "sp_07",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_50f4c6"
+    },
+    {
+      "id": "evt_16",
+      "tsMs": 1773238932910,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_511241",
+      "spanId": "sp_07",
+      "placementId": "plc_04",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_511241"
+    },
+    {
+      "id": "evt_17",
+      "tsMs": 1773238933340,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_512fbc",
+      "spanId": "sp_07",
+      "placementId": "plc_05",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_512fbc"
+    },
+    {
+      "id": "evt_18",
+      "tsMs": 1773238933720,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_514d37",
+      "spanId": "sp_07",
+      "placementId": "plc_06",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_514d37"
+    },
+    {
+      "id": "evt_19",
+      "tsMs": 1773238933726,
+      "type": "stage2.span.opened",
+      "entityId": "ct_span_516ab2",
+      "spanId": "sp_08",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_516ab2"
+    },
+    {
+      "id": "evt_20",
+      "tsMs": 1773238934420,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_51882d",
+      "spanId": "sp_08",
+      "placementId": "plc_07",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_51882d"
+    },
+    {
+      "id": "evt_21",
+      "tsMs": 1773238934980,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_51a5a8",
+      "spanId": "sp_08",
+      "placementId": "plc_08",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_51a5a8"
+    },
+    {
+      "id": "evt_22",
+      "tsMs": 1773238934986,
+      "type": "stage2.span.opened",
+      "entityId": "ct_span_51c323",
+      "spanId": "sp_09",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_51c323"
+    },
+    {
+      "id": "evt_23",
+      "tsMs": 1773238935740,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_51e09e",
+      "spanId": "sp_09",
+      "placementId": "plc_09",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_51e09e"
+    },
+    {
+      "id": "evt_24",
+      "tsMs": 1773238936320,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_51fe19",
+      "spanId": "sp_09",
+      "placementId": "plc_10",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_51fe19"
+    },
+    {
+      "id": "evt_25",
+      "tsMs": 1773238936326,
+      "type": "stage2.span.opened",
+      "entityId": "ct_span_521b94",
+      "spanId": "sp_10",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_521b94"
+    },
+    {
+      "id": "evt_26",
+      "tsMs": 1773238936330,
+      "type": "stage2.cache.hit",
+      "entityId": "ct_span_52390f",
+      "spanId": "sp_10",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_52390f"
+    },
+    {
+      "id": "evt_27",
+      "tsMs": 1773238936880,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_52568a",
+      "spanId": "sp_10",
+      "placementId": "plc_11",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_52568a"
+    },
+    {
+      "id": "evt_28",
+      "tsMs": 1773238937360,
+      "type": "stage2.inventory.found",
+      "entityId": "ct_placement_527405",
+      "spanId": "sp_10",
+      "placementId": "plc_12",
+      "portUrl": "https://app.getport.io/entity/catalyst_placement/ct_placement_527405"
+    },
+    {
+      "id": "evt_29",
+      "tsMs": 1773238937366,
+      "type": "stage2.span.opened",
+      "entityId": "ct_span_529180",
+      "spanId": "sp_11",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_529180"
+    },
+    {
+      "id": "evt_30",
+      "tsMs": 1773238938020,
+      "type": "stage2.scrape.failed",
+      "entityId": "ct_span_52aefb",
+      "spanId": "sp_11",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_52aefb"
+    },
+    {
+      "id": "evt_31",
+      "tsMs": 1773238938700,
+      "type": "stage2.cpm.normalized",
+      "entityId": "ct_span_52cc76",
+      "spanId": "sp_12",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_52cc76"
+    },
+    {
+      "id": "evt_32",
+      "tsMs": 1773238939720,
+      "type": "stage2.fit.scored",
+      "entityId": "ct_span_52e9f1",
+      "spanId": "sp_13",
+      "portUrl": "https://app.getport.io/entity/catalyst_span/ct_span_52e9f1"
+    },
+    {
+      "id": "evt_33",
+      "tsMs": 1773238939960,
+      "type": "run.completed",
+      "entityId": "ct_run_53076c",
+      "spanId": "sp_14",
+      "portUrl": "https://app.getport.io/entity/catalyst_run/ct_run_53076c"
+    }
+  ]
+}
