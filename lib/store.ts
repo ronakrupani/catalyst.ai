@@ -17,13 +17,35 @@ interface Snapshot {
   events: CampaignAuditEvent[];
 }
 
+interface StoredOverlay extends Snapshot {
+  /** Identifies the fixture set the overlay was written against. */
+  seedVersion: string;
+}
+
 const seed = raw as unknown as Snapshot;
+
+/**
+ * Changes whenever the shipped fixtures change. An overlay written against an
+ * older set is discarded rather than shadowing the new one — without this, the
+ * first session to write to storage would pin that browser to a fixture set
+ * forever and no future deploy could ever be seen.
+ */
+const SEED_VERSION = seed.campaigns
+  .map((c) => c.id)
+  .sort()
+  .join("|");
 
 function readOverlay(): Snapshot | null {
   if (typeof window === "undefined") return null;
   try {
     const stored = window.localStorage.getItem(KEY);
-    return stored ? (JSON.parse(stored) as Snapshot) : null;
+    if (!stored) return null;
+    const parsed = JSON.parse(stored) as Partial<StoredOverlay>;
+    if (parsed.seedVersion !== SEED_VERSION) {
+      window.localStorage.removeItem(KEY);
+      return null;
+    }
+    return { campaigns: parsed.campaigns ?? [], events: parsed.events ?? [] };
   } catch {
     return null;
   }
@@ -32,7 +54,8 @@ function readOverlay(): Snapshot | null {
 function writeOverlay(snapshot: Snapshot) {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(KEY, JSON.stringify(snapshot));
+    const payload: StoredOverlay = { ...snapshot, seedVersion: SEED_VERSION };
+    window.localStorage.setItem(KEY, JSON.stringify(payload));
   } catch {
     // Storage unavailable; the session still works, it just will not survive.
   }
