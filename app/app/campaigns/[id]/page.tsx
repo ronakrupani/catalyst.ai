@@ -8,13 +8,7 @@ import { JsonInspector } from "@/components/primitives/JsonInspector";
 import { CampaignHeader } from "@/components/dashboard/CampaignHeader";
 import { useCampaign } from "@/components/dashboard/CampaignProvider";
 import { cpmScale, topChannel } from "@/lib/campaign";
-import { formatCpm } from "@/lib/format";
-
-const usd = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
+import { formatCpm, formatUsd } from "@/lib/format";
 
 function LaunchToast() {
   const params = useSearchParams();
@@ -60,7 +54,7 @@ export default function LiveCampaignPage() {
           Live since <MonoValue size="body-lg" tone="default">{since}</MonoValue>.{" "}
           <MonoValue size="body-lg" tone="default">{included.length}</MonoValue> channels,{" "}
           <MonoValue size="body-lg" tone="default">
-            {brief.maximum_spend_usd !== null ? usd.format(brief.maximum_spend_usd) : "—"}
+            {brief.maximum_spend_usd !== null ? formatUsd(brief.maximum_spend_usd) : "—"}
           </MonoValue>{" "}
           cap, ends{" "}
           <MonoValue size="body-lg" tone="default">{brief.publication_window_end}</MonoValue>.

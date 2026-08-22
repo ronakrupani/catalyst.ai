@@ -128,3 +128,22 @@ export function formatFormat(
 export function formatAgeRange([low, high]: [number, number]): string {
   return `${low}–${high}`;
 }
+
+/** `$250,000` — budgets and caps, no cents. */
+export function formatUsd(value: number): string {
+  return usdWhole.format(value);
+}
+
+/** `250,000` — grouped digits for a money input, without the symbol. */
+export function formatGrouped(value: number): string {
+  return whole.format(value);
+}
+
+/** Inclusive day count across a flight, or 0 if either date is missing. */
+export function flightDays(start: string, end: string): number {
+  if (!start || !end) return 0;
+  const a = Date.parse(start);
+  const b = Date.parse(end);
+  if (Number.isNaN(a) || Number.isNaN(b) || b < a) return 0;
+  return Math.round((b - a) / 86400000) + 1;
+}

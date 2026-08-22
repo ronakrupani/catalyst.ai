@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { MonoValue } from "@/components/primitives/MonoValue";
+import { MoneyInput, SpendPresets } from "@/components/primitives/MoneyInput";
+import { flightDays, formatUsd } from "@/lib/format";
 import { CAMPAIGN_GOALS, type CampaignBrief } from "@/lib/campaign";
 import { createCampaign } from "@/lib/api";
 
@@ -129,6 +131,11 @@ export function IntakeStageB({
     router.push(`/app/campaigns/${campaign.id}/research`);
   }
 
+  const days = flightDays(
+    brief.publication_window_start,
+    brief.publication_window_end,
+  );
+
   const help = (field: Field) => (errors[field] ? `${field}-error` : undefined);
 
   return (
@@ -241,23 +248,38 @@ export function IntakeStageB({
 
         <div>
           <Label htmlFor="maximum_spend_usd">Maximum spend</Label>
-          <Input
-            id="maximum_spend_usd"
-            className="ct-num mt-2"
-            inputMode="numeric"
-            value={brief.maximum_spend_usd ?? ""}
-            onChange={(e) => {
-              const raw = e.target.value.replace(/[^0-9]/g, "");
-              set("maximum_spend_usd", raw ? Number(raw) : null);
-            }}
-            onBlur={() => blur("maximum_spend_usd")}
-            aria-invalid={Boolean(errors.maximum_spend_usd)}
-            aria-describedby={
-              errors.maximum_spend_usd ? "maximum_spend_usd-error" : "maximum_spend_usd-help"
-            }
+          <div className="mt-2">
+            <MoneyInput
+              id="maximum_spend_usd"
+              value={brief.maximum_spend_usd}
+              onChange={(v) => set("maximum_spend_usd", v)}
+              onBlur={() => blur("maximum_spend_usd")}
+              invalid={Boolean(errors.maximum_spend_usd)}
+              aria-describedby={
+                errors.maximum_spend_usd ? "maximum_spend_usd-error" : "maximum_spend_usd-help"
+              }
+            />
+          </div>
+          <SpendPresets
+            active={brief.maximum_spend_usd}
+            onPick={(v) => set("maximum_spend_usd", v)}
           />
-          <p id="maximum_spend_usd-help" className="mt-1.5 text-body-sm text-slate-400">
+          <p id="maximum_spend_usd-help" className="mt-2 text-body-sm text-slate-400">
             Catalyst plans against this. It never spends it.
+            {days > 0 && brief.maximum_spend_usd !== null ? (
+              <>
+                {" "}
+                Across{" "}
+                <MonoValue size="body-sm" tone="muted">
+                  {days}
+                </MonoValue>{" "}
+                days that is{" "}
+                <MonoValue size="body-sm" tone="muted">
+                  {formatUsd(Math.round(brief.maximum_spend_usd / days))}
+                </MonoValue>{" "}
+                a day at most.
+              </>
+            ) : null}
           </p>
           <FieldError id="maximum_spend_usd-error" message={errors.maximum_spend_usd ?? null} />
         </div>

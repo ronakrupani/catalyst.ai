@@ -155,7 +155,10 @@ body {
   color: var(--ct-text-muted);
 }
 
-:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+/* This rule is unlayered, so it outranks every Tailwind utility no matter the
+   specificity. Composite controls that draw the ring on their own frame opt
+   out with data-no-focus-ring rather than fighting it. */
+:where(a, button, input, textarea, select, [tabindex]):not([data-no-focus-ring]):focus-visible {
   outline: none;
   box-shadow: var(--ct-glow-focus);
   border-radius: var(--ct-radius-sm);

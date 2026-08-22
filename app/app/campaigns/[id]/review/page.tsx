@@ -10,13 +10,7 @@ import { CampaignHeader } from "@/components/dashboard/CampaignHeader";
 import { useCampaign } from "@/components/dashboard/CampaignProvider";
 import { launchCampaign } from "@/lib/api";
 import { cpmScale, topChannel } from "@/lib/campaign";
-import { formatCpm } from "@/lib/format";
-
-const usd = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
+import { formatCpm, formatUsd } from "@/lib/format";
 
 function Section({
   title,
@@ -144,7 +138,7 @@ export default function ReviewPage() {
               <div>
                 <div className="ct-eyebrow">maximum spend</div>
                 <MonoValue size="title" tone="default" className="mt-1 block">
-                  {brief.maximum_spend_usd !== null ? usd.format(brief.maximum_spend_usd) : "—"}
+                  {brief.maximum_spend_usd !== null ? formatUsd(brief.maximum_spend_usd) : "—"}
                 </MonoValue>
               </div>
               <div>
