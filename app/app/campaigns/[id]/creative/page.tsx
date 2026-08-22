@@ -7,7 +7,7 @@ import { MonoValue } from "@/components/primitives/MonoValue";
 import { AdUnitFrame } from "@/components/primitives/AdUnitFrame";
 import { CampaignHeader } from "@/components/dashboard/CampaignHeader";
 import { useCampaign } from "@/components/dashboard/CampaignProvider";
-import { advance, attachCreative, generateCreative } from "@/lib/api";
+import { advance, attachCreative, generateCreative, previewUnitFor } from "@/lib/api";
 import { topChannel, type Creative } from "@/lib/campaign";
 
 function formatBytes(bytes: number): string {
@@ -20,8 +20,7 @@ export default function CreativePage() {
   const { campaign } = useCampaign();
   const router = useRouter();
   const top = topChannel(campaign) ?? "your best-scoring channel";
-  const unit =
-    campaign.research?.channels.find((c) => c.included)?.adUnit ?? { w: 300, h: 250 };
+  const unit = previewUnitFor(campaign);
 
   const [dragging, setDragging] = useState(false);
   const [upload, setUpload] = useState<{ name: string; size: number } | null>(null);
@@ -150,11 +149,17 @@ export default function CreativePage() {
 
             <div className="mt-4">
               {generating ? (
-                <AdUnitFrame unit={unit} loading label="" />
+                <AdUnitFrame unit={unit} loading label="" maxEdge={440} />
               ) : generated ? (
-                <AdUnitFrame unit={unit} label={`${campaign.brief.product_name} · ${top}`} />
+                <AdUnitFrame
+                  unit={generated.adUnit}
+                  src={generated.assetUrl}
+                  alt={`Generated ad for ${campaign.brief.product_name}, briefed against ${top}`}
+                  label={`${campaign.brief.product_name} · ${top}`}
+                  maxEdge={440}
+                />
               ) : (
-                <AdUnitFrame unit={unit} label="" />
+                <AdUnitFrame unit={unit} label="" maxEdge={440} />
               )}
             </div>
 

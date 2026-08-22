@@ -80,7 +80,12 @@
           "h": 250
         }
       }
-    ]
+    ],
+    "creative": {
+      "assetUrl": "/creatives/apple.png",
+      "w": 1200,
+      "h": 654
+    }
   },
   {
     "host": "nike.com",
@@ -163,7 +168,12 @@
           "h": 250
         }
       }
-    ]
+    ],
+    "creative": {
+      "assetUrl": "/creatives/nike.png",
+      "w": 1200,
+      "h": 654
+    }
   },
   {
     "host": "netflix.com",

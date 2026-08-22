@@ -157,6 +157,8 @@ interface SiteProfile {
   brief: Partial<CampaignBrief>;
   prefilled: (keyof CampaignBrief)[];
   channels: Omit<MatchedChannel, "rank" | "included" | "source">[];
+  /** The asset the stubbed generator returns for this brand, if it has one. */
+  creative?: { assetUrl: string; w: number; h: number };
 }
 
 const PROFILES = rawProfiles as unknown as SiteProfile[];
@@ -264,19 +266,36 @@ export function saveChannelSelection(id: string, channels: MatchedChannel[]) {
 /** Roughly 4s of generation against the top-ranked channel. */
 export const GENERATE_MS = 4000;
 
+/**
+ * The unit generation will return, known before it runs, so the idle frame,
+ * the skeleton and the result all occupy the same box.
+ */
+export function previewUnitFor(campaign: Campaign): { w: number; h: number } {
+  const profile = profileFor(campaign.brief.product_url);
+  if (profile?.creative) return { w: profile.creative.w, h: profile.creative.h };
+  return campaign.research?.channels.find((c) => c.included)?.adUnit ?? { w: 300, h: 250 };
+}
+
 export async function generateCreative(id: string): Promise<Creative | null> {
   const campaign = getCampaign(id);
   if (!campaign) return null;
   await sleep(GENERATE_MS);
   const top = campaign.research?.channels.find((c) => c.included);
-  const unit = top?.adUnit ?? { w: 300, h: 250 };
+  const profile = profileFor(campaign.brief.product_url);
+  // A known brand returns its rendered asset; anything else returns the unit
+  // it was briefed for and the frame draws a wireframe.
+  const unit = profile?.creative
+    ? { w: profile.creative.w, h: profile.creative.h }
+    : (top?.adUnit ?? { w: 300, h: 250 });
+  const slug = campaign.brief.product_name.toLowerCase().replace(/\s+/g, "-");
   const creative: Creative = {
     kind: "generated",
-    filename: `${campaign.brief.product_name.toLowerCase().replace(/\s+/g, "-")}-${(top?.platform ?? "display").toLowerCase()}-${unit.w}x${unit.h}.png`,
-    sizeBytes: 184320,
+    filename: `${slug}-${(top?.platform ?? "display").toLowerCase().replace(/\s+/g, "-")}-${unit.w}x${unit.h}.png`,
+    sizeBytes: profile?.creative ? 1032453 : 184320,
     format: "PNG",
     adUnit: unit,
     briefedAgainst: top?.platform,
+    ...(profile?.creative ? { assetUrl: profile.creative.assetUrl } : {}),
   };
   event(id, "creative.generated", Date.now());
   return creative;

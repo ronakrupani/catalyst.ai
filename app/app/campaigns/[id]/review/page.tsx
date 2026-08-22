@@ -116,7 +116,9 @@ export default function ReviewPage() {
               <div className="flex items-start gap-6">
                 <AdUnitFrame
                   unit={creative.adUnit}
-                  maxEdge={200}
+                  src={creative.assetUrl}
+                  alt={`Ad for ${brief.product_name}${top ? `, briefed against ${top}` : ""}`}
+                  maxEdge={240}
                   label={`${brief.product_name}${top ? ` · ${top}` : ""}`}
                 />
                 <div className="min-w-0">

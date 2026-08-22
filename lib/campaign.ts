@@ -113,6 +113,8 @@ export interface Creative {
   adUnit: AdUnit;
   /** Top-ranked channel the creative was briefed against. */
   briefedAgainst?: string;
+  /** Rendered asset. Absent means the frame draws a wireframe instead. */
+  assetUrl?: string;
 }
 
 export interface Campaign {

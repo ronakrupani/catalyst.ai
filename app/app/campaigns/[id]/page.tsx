@@ -64,7 +64,9 @@ export default function LiveCampaignPage() {
           {creative && (
             <AdUnitFrame
               unit={creative.adUnit}
-              maxEdge={260}
+              src={creative.assetUrl}
+              alt={`Ad for ${brief.product_name}${top ? `, briefed against ${top}` : ""}`}
+              maxEdge={380}
               label={`${brief.product_name}${top ? ` · ${top}` : ""}`}
             />
           )}

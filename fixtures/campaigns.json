@@ -663,14 +663,15 @@
       "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_nike",
       "creative": {
         "kind": "generated",
-        "filename": "nike-instagram-1080x1080.png",
-        "sizeBytes": 214016,
+        "filename": "nike-instagram-1200x654.png",
+        "sizeBytes": 1032453,
         "format": "PNG",
         "adUnit": {
-          "w": 1080,
-          "h": 1080
+          "w": 1200,
+          "h": 654
         },
-        "briefedAgainst": "Instagram"
+        "briefedAgainst": "Instagram",
+        "assetUrl": "/creatives/nike.png"
       },
       "launchedAtMs": 1787131326000,
       "payload": {
