@@ -36,24 +36,32 @@ export function AdUnitFrame({
   const showAsset = Boolean(src) && !loading;
   return (
     <div className={className}>
+      {/* Width is a ceiling, not a fixed size: the frame keeps the unit's
+          proportions via aspect-ratio and scales down inside its column
+          instead of overflowing it. */}
       <div
-        className={`flex items-center justify-center overflow-hidden rounded-xs bg-ink-100 ${
+        className={`relative flex items-center justify-center overflow-hidden rounded-xs bg-ink-100 ${
           loading
             ? "ct-skeleton border border-ink-400"
             : showAsset
               ? "border border-ink-400"
               : "border border-dashed border-ink-500"
         }`}
-        style={box}
+        style={{
+          width: box.width,
+          maxWidth: "100%",
+          aspectRatio: `${unit.w} / ${unit.h}`,
+          minHeight: 24,
+        }}
         aria-hidden={showAsset ? undefined : "true"}
       >
         {showAsset ? (
           <Image
             src={src as string}
             alt={alt ?? ""}
-            width={box.width}
-            height={box.height}
-            className="h-full w-full object-cover"
+            fill
+            sizes={`${box.width}px`}
+            className="object-cover"
           />
         ) : !loading && label ? (
           <span className="px-2 text-center text-body-sm text-slate-300">{label}</span>

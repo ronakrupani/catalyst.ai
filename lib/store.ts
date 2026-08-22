@@ -24,16 +24,26 @@ interface StoredOverlay extends Snapshot {
 
 const seed = raw as unknown as Snapshot;
 
+/** Stable 32-bit hash. Only needs to change when the input does. */
+function hash(input: string): string {
+  let h = 5381;
+  for (let i = 0; i < input.length; i += 1) {
+    h = ((h << 5) + h + input.charCodeAt(i)) | 0;
+  }
+  return (h >>> 0).toString(36);
+}
+
 /**
  * Changes whenever the shipped fixtures change. An overlay written against an
  * older set is discarded rather than shadowing the new one — without this, the
  * first session to write to storage would pin that browser to a fixture set
  * forever and no future deploy could ever be seen.
+ *
+ * Hashes the whole seed, not just the ids: editing a campaign in place, such
+ * as attaching a rendered creative to one that already existed, has to
+ * invalidate the overlay too.
  */
-const SEED_VERSION = seed.campaigns
-  .map((c) => c.id)
-  .sort()
-  .join("|");
+const SEED_VERSION = hash(JSON.stringify(seed));
 
 function readOverlay(): Snapshot | null {
   if (typeof window === "undefined") return null;
