@@ -1,131 +1,121 @@
 {
   "campaigns": [
     {
-      "id": "cmp_apple_music",
+      "id": "cmp_stripe",
       "status": "READY_FOR_RESEARCH",
       "createdAtMs": 1787396520000,
       "brief": {
-        "product_name": "Apple Music",
-        "product_url": "https://apple.com/apple-music",
-        "offer_summary": "One hundred million songs in lossless and spatial audio, three months free with a device.",
-        "target_audience": "Streaming subscribers in their twenties on a rival service, and lapsed trial users.",
+        "product_name": "Stripe",
+        "product_url": "https://stripe.com",
+        "offer_summary": "Payments, billing and payouts for internet businesses, priced per transaction.",
+        "target_audience": "Engineering and finance leads at companies processing their first million in payments.",
         "campaign_goal": "Free-trial signups",
-        "maximum_spend_usd": 90000,
+        "maximum_spend_usd": 180000,
         "publication_window_start": "2026-09-08",
         "publication_window_end": "2026-10-06"
       },
       "research": {
         "channels": [
           {
-            "rank": 1,
-            "platform": "TikTok",
-            "rationale": "Discovery starts with a sound, not an artist. This is the shortest path to a first listen.",
+            "platform": "LinkedIn",
+            "rationale": "Finance and engineering leaders both sit here, and this is a two-signature purchase.",
             "confidence": 0.92,
-            "cpmLow": 6.8,
-            "cpmHigh": 12.1,
-            "included": true,
-            "source": "live",
+            "cpmLow": 30.4,
+            "cpmHigh": 44.2,
             "adUnit": {
-              "w": 1080,
-              "h": 1920
-            }
+              "w": 728,
+              "h": 90
+            },
+            "rank": 1,
+            "included": true,
+            "source": "live"
           },
           {
-            "rank": 2,
-            "platform": "Instagram",
-            "rationale": "Reels and Stories carry the same clips, and saves here predict trial starts well.",
+            "platform": "Stack Overflow",
+            "rationale": "Integration questions are asked here first, which is the moment of highest intent.",
             "confidence": 0.88,
-            "cpmLow": 10.4,
-            "cpmHigh": 16.2,
-            "included": true,
-            "source": "live",
+            "cpmLow": 19.6,
+            "cpmHigh": 27.4,
             "adUnit": {
-              "w": 1080,
-              "h": 1080
-            }
+              "w": 300,
+              "h": 250
+            },
+            "rank": 2,
+            "included": true,
+            "source": "live"
           },
           {
+            "platform": "Reddit",
+            "rationale": "r/SaaS and r/webdev compare processors openly, including on fees.",
+            "confidence": 0.83,
+            "cpmLow": 9.8,
+            "cpmHigh": 15.2,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
             "rank": 3,
-            "platform": "YouTube",
-            "rationale": "Music video watch time is the strongest signal of a listener not yet on a subscription.",
-            "confidence": 0.85,
-            "cpmLow": 11.9,
-            "cpmHigh": 18.3,
             "included": true,
-            "source": "live",
+            "source": "live"
+          },
+          {
+            "platform": "Carbon Ads",
+            "rationale": "One unobtrusive unit across developer publications. Cheap endemic reach.",
+            "confidence": 0.79,
+            "cpmLow": 12.8,
+            "cpmHigh": 20.1,
+            "adUnit": {
+              "w": 130,
+              "h": 100
+            },
+            "rank": 4,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "YouTube",
+            "rationale": "Integration walkthroughs and conference talks, for capture once the category is understood.",
+            "confidence": 0.71,
+            "cpmLow": 12.4,
+            "cpmHigh": 18.6,
             "adUnit": {
               "w": 970,
               "h": 250
-            }
-          },
-          {
-            "rank": 4,
-            "platform": "Reddit",
-            "rationale": "Genre subreddits argue about catalogue and lossless. Small reach, unusually decided buyers.",
-            "confidence": 0.74,
-            "cpmLow": 8.2,
-            "cpmHigh": 13,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 300,
-              "h": 250
-            }
-          },
-          {
+            },
             "rank": 5,
-            "platform": "X",
-            "rationale": "Reach around release Fridays, useful for a launch beat and little else.",
-            "confidence": 0.69,
-            "cpmLow": 7.6,
-            "cpmHigh": 12.4,
             "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 300,
-              "h": 250
-            }
+            "source": "live"
           },
           {
-            "rank": 6,
-            "platform": "Meta Audience Network",
-            "rationale": "Retargeting the free-trial page. Cheapest way back to someone who nearly signed up.",
-            "confidence": 0.63,
-            "cpmLow": 4.8,
-            "cpmHigh": 8.9,
-            "included": true,
-            "source": "live",
+            "platform": "X",
+            "rationale": "Founders and engineering leads still congregate here around launches.",
+            "confidence": 0.66,
+            "cpmLow": 8.9,
+            "cpmHigh": 14,
             "adUnit": {
               "w": 300,
               "h": 250
-            }
+            },
+            "rank": 6,
+            "included": true,
+            "source": "live"
           }
         ],
         "platformsSearched": 6,
-        "elapsedMs": 5840,
+        "elapsedMs": 6120,
         "failedPlatform": "Snapchat",
         "cacheAgeMinutes": 14
-      },
-      "creative": {
-        "kind": "generated",
-        "filename": "apple-music-tiktok-1080x1920.png",
-        "sizeBytes": 468992,
-        "format": "PNG",
-        "adUnit": {
-          "w": 1080,
-          "h": 1920
-        },
-        "briefedAgainst": "TikTok"
       },
       "prefilled": [
         "product_name",
         "product_url",
-        "offer_summary"
+        "offer_summary",
+        "target_audience"
       ],
-      "traceUrl": "https://signoz.catalyst.internal/trace/2b81e0c4aa19",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_apple_music",
+      "traceUrl": "https://signoz.catalyst.internal/trace/cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_stripe",
       "payload": {
-        "campaign_id": "cmp_apple_music",
+        "campaign_id": "cmp_stripe",
         "status": "READY_FOR_RESEARCH",
         "flight": {
           "start": "2026-09-08",
@@ -133,53 +123,47 @@
         },
         "budget": {
           "currency": "USD",
-          "cap": 90000,
+          "cap": 180000,
           "pacing": "even"
         },
-        "creative": {
-          "format": "PNG",
-          "width": 1080,
-          "height": 1920,
-          "asset_id": "ast_1d90bb"
-        },
         "targeting": {
-          "audience": "Streaming subscribers in their twenties on a rival service, and lapsed trial users.",
+          "audience": "Engineering and finance leads at companies processing their first million in payments.",
           "channels": [
             {
-              "platform": "TikTok",
+              "platform": "LinkedIn",
               "confidence": 0.92,
-              "cpm_floor": 6.8,
-              "cpm_ceiling": 12.1
+              "cpm_floor": 30.4,
+              "cpm_ceiling": 44.2
             },
             {
-              "platform": "Instagram",
+              "platform": "Stack Overflow",
               "confidence": 0.88,
-              "cpm_floor": 10.4,
-              "cpm_ceiling": 16.2
-            },
-            {
-              "platform": "YouTube",
-              "confidence": 0.85,
-              "cpm_floor": 11.9,
-              "cpm_ceiling": 18.3
+              "cpm_floor": 19.6,
+              "cpm_ceiling": 27.4
             },
             {
               "platform": "Reddit",
-              "confidence": 0.74,
-              "cpm_floor": 8.2,
-              "cpm_ceiling": 13
+              "confidence": 0.83,
+              "cpm_floor": 9.8,
+              "cpm_ceiling": 15.2
+            },
+            {
+              "platform": "Carbon Ads",
+              "confidence": 0.79,
+              "cpm_floor": 12.8,
+              "cpm_ceiling": 20.1
+            },
+            {
+              "platform": "YouTube",
+              "confidence": 0.71,
+              "cpm_floor": 12.4,
+              "cpm_ceiling": 18.6
             },
             {
               "platform": "X",
-              "confidence": 0.69,
-              "cpm_floor": 7.6,
-              "cpm_ceiling": 12.4
-            },
-            {
-              "platform": "Meta Audience Network",
-              "confidence": 0.63,
-              "cpm_floor": 4.8,
-              "cpm_ceiling": 8.9
+              "confidence": 0.66,
+              "cpm_floor": 8.9,
+              "cpm_ceiling": 14
             }
           ]
         },
@@ -190,113 +174,308 @@
       }
     },
     {
-      "id": "cmp_apple_vision_pro",
-      "status": "ACTIVE",
-      "createdAtMs": 1787130840000,
-      "launchedAtMs": 1787131326000,
+      "id": "cmp_spotify",
+      "status": "READY_FOR_CREATIVE",
+      "createdAtMs": 1787326800000,
       "brief": {
-        "product_name": "Apple Vision Pro",
-        "product_url": "https://apple.com/apple-vision-pro",
-        "offer_summary": "Spatial computer for work and cinema, with trade-in and carrier-free financing.",
-        "target_audience": "Existing Mac and iPad owners in creative and technical work, comfortable at a premium price.",
-        "campaign_goal": "Brand awareness",
-        "maximum_spend_usd": 250000,
-        "publication_window_start": "2026-09-01",
-        "publication_window_end": "2026-10-15"
+        "product_name": "Spotify",
+        "product_url": "https://spotify.com",
+        "offer_summary": "Music and podcasts on a free tier or Premium, with a student rate and family plans.",
+        "target_audience": "Free-tier listeners who hit the skip limit, and students eligible for the discounted plan.",
+        "campaign_goal": "Free-trial signups",
+        "maximum_spend_usd": 320000,
+        "publication_window_start": "2026-09-05",
+        "publication_window_end": "2026-10-20"
       },
       "research": {
         "channels": [
           {
-            "rank": 1,
-            "platform": "YouTube",
-            "rationale": "Launch films live here, and the audience searches for them by name within the hour.",
-            "confidence": 0.94,
-            "cpmLow": 16.4,
-            "cpmHigh": 24.8,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 970,
-              "h": 250
-            }
-          },
-          {
-            "rank": 2,
-            "platform": "Instagram",
-            "rationale": "Spatial video is the whole pitch, and this is where people already judge camera claims.",
-            "confidence": 0.91,
-            "cpmLow": 12.6,
-            "cpmHigh": 19.2,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 1080,
-              "h": 1080
-            }
-          },
-          {
-            "rank": 3,
-            "platform": "Reddit",
-            "rationale": "r/VisionPro and r/apple decide whether a price is defensible before anyone visits a store.",
-            "confidence": 0.84,
-            "cpmLow": 9.1,
-            "cpmHigh": 14.3,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 300,
-              "h": 250
-            }
-          },
-          {
-            "rank": 4,
-            "platform": "X",
-            "rationale": "Fast reach through the launch window, though targeting has degraded and waste runs higher.",
-            "confidence": 0.77,
-            "cpmLow": 8.8,
-            "cpmHigh": 13.6,
-            "included": true,
-            "source": "live",
-            "adUnit": {
-              "w": 300,
-              "h": 250
-            }
-          },
-          {
-            "rank": 5,
             "platform": "TikTok",
-            "rationale": "Demo reactions travel further than the ad does. Paid buys compound the organic reach.",
-            "confidence": 0.72,
-            "cpmLow": 7.2,
-            "cpmHigh": 12.4,
-            "included": true,
-            "source": "live",
+            "rationale": "A sound becomes a search. This is the shortest path from a clip to a stream.",
+            "confidence": 0.93,
+            "cpmLow": 7.1,
+            "cpmHigh": 12.8,
             "adUnit": {
               "w": 1080,
               "h": 1920
-            }
+            },
+            "rank": 1,
+            "included": true,
+            "source": "live"
           },
           {
-            "rank": 6,
-            "platform": "Meta Audience Network",
-            "rationale": "Cheapest incremental reach in the set. Weak on brand, right for retargeting the visits.",
-            "confidence": 0.66,
-            "cpmLow": 5.4,
-            "cpmHigh": 9.8,
+            "platform": "Instagram",
+            "rationale": "Story shares of playlists behave like word of mouth with a measurable click.",
+            "confidence": 0.89,
+            "cpmLow": 10.8,
+            "cpmHigh": 16.9,
+            "adUnit": {
+              "w": 1080,
+              "h": 1080
+            },
+            "rank": 2,
             "included": true,
-            "source": "live",
+            "source": "live"
+          },
+          {
+            "platform": "YouTube",
+            "rationale": "Music video watch time marks a listener who is not yet paying for a subscription.",
+            "confidence": 0.84,
+            "cpmLow": 12.3,
+            "cpmHigh": 19.1,
+            "adUnit": {
+              "w": 970,
+              "h": 250
+            },
+            "rank": 3,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Reddit",
+            "rationale": "Genre communities argue catalogue depth and audio quality, and they convert.",
+            "confidence": 0.76,
+            "cpmLow": 8.4,
+            "cpmHigh": 13.3,
             "adUnit": {
               "w": 300,
               "h": 250
-            }
+            },
+            "rank": 4,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Snapchat",
+            "rationale": "Reaches students during the window when the discount actually matters.",
+            "confidence": 0.7,
+            "cpmLow": 6.4,
+            "cpmHigh": 11.2,
+            "adUnit": {
+              "w": 1080,
+              "h": 1920
+            },
+            "rank": 5,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Meta Audience Network",
+            "rationale": "Retargeting the trial page, the cheapest way back to someone who nearly signed up.",
+            "confidence": 0.64,
+            "cpmLow": 4.7,
+            "cpmHigh": 8.6,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
+            "rank": 6,
+            "included": true,
+            "source": "live"
           }
         ],
         "platformsSearched": 6,
         "elapsedMs": 6120
       },
+      "prefilled": [
+        "product_name",
+        "product_url",
+        "offer_summary",
+        "target_audience"
+      ],
+      "traceUrl": "https://signoz.catalyst.internal/trace/cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_spotify",
       "creative": {
         "kind": "generated",
-        "filename": "apple-vision-pro-youtube-970x250.png",
+        "filename": "spotify-tiktok-1080x1920.png",
+        "sizeBytes": 214016,
+        "format": "PNG",
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        },
+        "briefedAgainst": "TikTok"
+      },
+      "payload": {
+        "campaign_id": "cmp_spotify",
+        "status": "READY_FOR_CREATIVE",
+        "flight": {
+          "start": "2026-09-05",
+          "end": "2026-10-20"
+        },
+        "budget": {
+          "currency": "USD",
+          "cap": 320000,
+          "pacing": "even"
+        },
+        "creative": {
+          "format": "PNG",
+          "width": 1080,
+          "height": 1920,
+          "asset_id": "ast_spotif"
+        },
+        "targeting": {
+          "audience": "Free-tier listeners who hit the skip limit, and students eligible for the discounted plan.",
+          "channels": [
+            {
+              "platform": "TikTok",
+              "confidence": 0.93,
+              "cpm_floor": 7.1,
+              "cpm_ceiling": 12.8
+            },
+            {
+              "platform": "Instagram",
+              "confidence": 0.89,
+              "cpm_floor": 10.8,
+              "cpm_ceiling": 16.9
+            },
+            {
+              "platform": "YouTube",
+              "confidence": 0.84,
+              "cpm_floor": 12.3,
+              "cpm_ceiling": 19.1
+            },
+            {
+              "platform": "Reddit",
+              "confidence": 0.76,
+              "cpm_floor": 8.4,
+              "cpm_ceiling": 13.3
+            },
+            {
+              "platform": "Snapchat",
+              "confidence": 0.7,
+              "cpm_floor": 6.4,
+              "cpm_ceiling": 11.2
+            },
+            {
+              "platform": "Meta Audience Network",
+              "confidence": 0.64,
+              "cpm_floor": 4.7,
+              "cpm_ceiling": 8.6
+            }
+          ]
+        },
+        "dsp": {
+          "endpoint": "https://dsp.example.com/v1/bid",
+          "dry_run": true
+        }
+      }
+    },
+    {
+      "id": "cmp_netflix",
+      "status": "READY_FOR_REVIEW",
+      "createdAtMs": 1787214360000,
+      "brief": {
+        "product_name": "Netflix",
+        "product_url": "https://netflix.com",
+        "offer_summary": "Streaming films and series across four tiers, including an ad-supported plan.",
+        "target_audience": "Households already paying for two streaming services, and lapsed subscribers who left after a season ended.",
+        "campaign_goal": "Brand awareness",
+        "maximum_spend_usd": 750000,
+        "publication_window_start": "2026-09-12",
+        "publication_window_end": "2026-11-01"
+      },
+      "research": {
+        "channels": [
+          {
+            "platform": "YouTube",
+            "rationale": "Trailers are watched here by choice, and view-through predicts a first episode.",
+            "confidence": 0.94,
+            "cpmLow": 15.6,
+            "cpmHigh": 23.4,
+            "adUnit": {
+              "w": 970,
+              "h": 250
+            },
+            "rank": 1,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "TikTok",
+            "rationale": "Scenes are clipped and argued about here within hours of a release.",
+            "confidence": 0.91,
+            "cpmLow": 8.2,
+            "cpmHigh": 14.1,
+            "adUnit": {
+              "w": 1080,
+              "h": 1920
+            },
+            "rank": 2,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Instagram",
+            "rationale": "Cast-led promotion, where a title travels on a face rather than a logline.",
+            "confidence": 0.87,
+            "cpmLow": 11.2,
+            "cpmHigh": 17.6,
+            "adUnit": {
+              "w": 1080,
+              "h": 1080
+            },
+            "rank": 3,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Reddit",
+            "rationale": "Show subreddits sustain attention between seasons better than any paid flight.",
+            "confidence": 0.79,
+            "cpmLow": 9.4,
+            "cpmHigh": 14.8,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
+            "rank": 4,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "X",
+            "rationale": "Live reaction through a premiere window, useful for a launch beat and little else.",
+            "confidence": 0.72,
+            "cpmLow": 8.1,
+            "cpmHigh": 13.2,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
+            "rank": 5,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Meta Audience Network",
+            "rationale": "Retargeting lapsed subscribers against a specific title rather than the service.",
+            "confidence": 0.66,
+            "cpmLow": 5.1,
+            "cpmHigh": 9.2,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
+            "rank": 6,
+            "included": true,
+            "source": "live"
+          }
+        ],
+        "platformsSearched": 6,
+        "elapsedMs": 6120
+      },
+      "prefilled": [
+        "product_name",
+        "product_url",
+        "offer_summary",
+        "target_audience"
+      ],
+      "traceUrl": "https://signoz.catalyst.internal/trace/cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_netflix",
+      "creative": {
+        "kind": "generated",
+        "filename": "netflix-youtube-970x250.png",
         "sizeBytes": 214016,
         "format": "PNG",
         "adUnit": {
@@ -305,16 +484,197 @@
         },
         "briefedAgainst": "YouTube"
       },
+      "payload": {
+        "campaign_id": "cmp_netflix",
+        "status": "READY_FOR_REVIEW",
+        "flight": {
+          "start": "2026-09-12",
+          "end": "2026-11-01"
+        },
+        "budget": {
+          "currency": "USD",
+          "cap": 750000,
+          "pacing": "even"
+        },
+        "creative": {
+          "format": "PNG",
+          "width": 970,
+          "height": 250,
+          "asset_id": "ast_netfli"
+        },
+        "targeting": {
+          "audience": "Households already paying for two streaming services, and lapsed subscribers who left after a season ended.",
+          "channels": [
+            {
+              "platform": "YouTube",
+              "confidence": 0.94,
+              "cpm_floor": 15.6,
+              "cpm_ceiling": 23.4
+            },
+            {
+              "platform": "TikTok",
+              "confidence": 0.91,
+              "cpm_floor": 8.2,
+              "cpm_ceiling": 14.1
+            },
+            {
+              "platform": "Instagram",
+              "confidence": 0.87,
+              "cpm_floor": 11.2,
+              "cpm_ceiling": 17.6
+            },
+            {
+              "platform": "Reddit",
+              "confidence": 0.79,
+              "cpm_floor": 9.4,
+              "cpm_ceiling": 14.8
+            },
+            {
+              "platform": "X",
+              "confidence": 0.72,
+              "cpm_floor": 8.1,
+              "cpm_ceiling": 13.2
+            },
+            {
+              "platform": "Meta Audience Network",
+              "confidence": 0.66,
+              "cpm_floor": 5.1,
+              "cpm_ceiling": 9.2
+            }
+          ]
+        },
+        "dsp": {
+          "endpoint": "https://dsp.example.com/v1/bid",
+          "dry_run": true
+        }
+      }
+    },
+    {
+      "id": "cmp_nike",
+      "status": "ACTIVE",
+      "createdAtMs": 1787130840000,
+      "brief": {
+        "product_name": "Nike",
+        "product_url": "https://nike.com",
+        "offer_summary": "Footwear and apparel sold direct, with member-only drops and free returns.",
+        "target_audience": "Runners and sneaker buyers from their late teens to mid thirties, in cities, who buy on release day.",
+        "campaign_goal": "Drive sales",
+        "maximum_spend_usd": 500000,
+        "publication_window_start": "2026-09-01",
+        "publication_window_end": "2026-10-15"
+      },
+      "research": {
+        "channels": [
+          {
+            "platform": "Instagram",
+            "rationale": "Athlete and product photography carry here, and saves predict launch-day traffic.",
+            "confidence": 0.93,
+            "cpmLow": 12.4,
+            "cpmHigh": 19.8,
+            "adUnit": {
+              "w": 1080,
+              "h": 1080
+            },
+            "rank": 1,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "TikTok",
+            "rationale": "Sneaker culture runs on this platform, and drops are discussed before they ship.",
+            "confidence": 0.9,
+            "cpmLow": 7.8,
+            "cpmHigh": 13.6,
+            "adUnit": {
+              "w": 1080,
+              "h": 1920
+            },
+            "rank": 2,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "YouTube",
+            "rationale": "Long-form brand films and athlete documentaries, where the story outlives the flight.",
+            "confidence": 0.85,
+            "cpmLow": 13.1,
+            "cpmHigh": 20.4,
+            "adUnit": {
+              "w": 970,
+              "h": 250
+            },
+            "rank": 3,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Snapchat",
+            "rationale": "Reaches the teenage half of the buyer that no longer opens the other apps.",
+            "confidence": 0.74,
+            "cpmLow": 6.9,
+            "cpmHigh": 11.8,
+            "adUnit": {
+              "w": 1080,
+              "h": 1920
+            },
+            "rank": 4,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Reddit",
+            "rationale": "r/Sneakers verifies authenticity and resale value, which decides the mid-tier purchase.",
+            "confidence": 0.68,
+            "cpmLow": 8.2,
+            "cpmHigh": 13.1,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
+            "rank": 5,
+            "included": true,
+            "source": "live"
+          },
+          {
+            "platform": "Meta Audience Network",
+            "rationale": "Cheapest way back to a cart that was abandoned at checkout.",
+            "confidence": 0.63,
+            "cpmLow": 4.9,
+            "cpmHigh": 8.7,
+            "adUnit": {
+              "w": 300,
+              "h": 250
+            },
+            "rank": 6,
+            "included": true,
+            "source": "live"
+          }
+        ],
+        "platformsSearched": 6,
+        "elapsedMs": 6120
+      },
       "prefilled": [
         "product_name",
         "product_url",
         "offer_summary",
         "target_audience"
       ],
-      "traceUrl": "https://signoz.catalyst.internal/trace/9f3c2a41b7e0",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_apple_vision_pro",
+      "traceUrl": "https://signoz.catalyst.internal/trace/cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/cmp_nike",
+      "creative": {
+        "kind": "generated",
+        "filename": "nike-instagram-1080x1080.png",
+        "sizeBytes": 214016,
+        "format": "PNG",
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        },
+        "briefedAgainst": "Instagram"
+      },
+      "launchedAtMs": 1787131326000,
       "payload": {
-        "campaign_id": "cmp_apple_vision_pro",
+        "campaign_id": "cmp_nike",
         "status": "ACTIVE",
         "flight": {
           "start": "2026-09-01",
@@ -322,53 +682,53 @@
         },
         "budget": {
           "currency": "USD",
-          "cap": 250000,
+          "cap": 500000,
           "pacing": "even"
         },
         "creative": {
           "format": "PNG",
-          "width": 970,
-          "height": 250,
-          "asset_id": "ast_7c41f0"
+          "width": 1080,
+          "height": 1080,
+          "asset_id": "ast_nike"
         },
         "targeting": {
-          "audience": "Existing Mac and iPad owners in creative and technical work, comfortable at a premium price.",
+          "audience": "Runners and sneaker buyers from their late teens to mid thirties, in cities, who buy on release day.",
           "channels": [
             {
-              "platform": "YouTube",
-              "confidence": 0.94,
-              "cpm_floor": 16.4,
-              "cpm_ceiling": 24.8
-            },
-            {
               "platform": "Instagram",
-              "confidence": 0.91,
-              "cpm_floor": 12.6,
-              "cpm_ceiling": 19.2
-            },
-            {
-              "platform": "Reddit",
-              "confidence": 0.84,
-              "cpm_floor": 9.1,
-              "cpm_ceiling": 14.3
-            },
-            {
-              "platform": "X",
-              "confidence": 0.77,
-              "cpm_floor": 8.8,
-              "cpm_ceiling": 13.6
+              "confidence": 0.93,
+              "cpm_floor": 12.4,
+              "cpm_ceiling": 19.8
             },
             {
               "platform": "TikTok",
-              "confidence": 0.72,
-              "cpm_floor": 7.2,
-              "cpm_ceiling": 12.4
+              "confidence": 0.9,
+              "cpm_floor": 7.8,
+              "cpm_ceiling": 13.6
+            },
+            {
+              "platform": "YouTube",
+              "confidence": 0.85,
+              "cpm_floor": 13.1,
+              "cpm_ceiling": 20.4
+            },
+            {
+              "platform": "Snapchat",
+              "confidence": 0.74,
+              "cpm_floor": 6.9,
+              "cpm_ceiling": 11.8
+            },
+            {
+              "platform": "Reddit",
+              "confidence": 0.68,
+              "cpm_floor": 8.2,
+              "cpm_ceiling": 13.1
             },
             {
               "platform": "Meta Audience Network",
-              "confidence": 0.66,
-              "cpm_floor": 5.4,
-              "cpm_ceiling": 9.8
+              "confidence": 0.63,
+              "cpm_floor": 4.9,
+              "cpm_ceiling": 8.7
             }
           ]
         },
@@ -381,148 +741,260 @@
   ],
   "events": [
     {
-      "id": "cmp_apple_vision_pro_evt_01",
+      "id": "cmp_nike_evt_01",
       "tsMs": 1787130840000,
       "type": "campaign.created",
-      "entityId": "ct_app_51a2c",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51a2c"
+      "entityId": "ct_nik_51a2c",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_51a2c"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_02",
+      "id": "cmp_nike_evt_02",
       "tsMs": 1787130841200,
       "type": "intake.brief.completed",
-      "entityId": "ct_app_51ce3",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51ce3"
+      "entityId": "ct_nik_51ce3",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_51ce3"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_03",
+      "id": "cmp_nike_evt_03",
       "tsMs": 1787130841600,
       "type": "stage1.offer.classified",
-      "entityId": "ct_app_51f9a",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51f9a"
+      "entityId": "ct_nik_51f9a",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_51f9a"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_04",
+      "id": "cmp_nike_evt_04",
       "tsMs": 1787130843400,
       "type": "stage1.channels.scored",
-      "entityId": "ct_app_52251",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52251"
+      "entityId": "ct_nik_52251",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_52251"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_05",
+      "id": "cmp_nike_evt_05",
       "tsMs": 1787130845100,
       "type": "stage2.rate_cards.pulled",
-      "entityId": "ct_app_52508",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52508"
+      "entityId": "ct_nik_52508",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_52508"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_06",
+      "id": "cmp_nike_evt_06",
       "tsMs": 1787130846120,
       "type": "research.completed",
-      "entityId": "ct_app_527bf",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_527bf"
+      "entityId": "ct_nik_527bf",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_527bf"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_07",
+      "id": "cmp_nike_evt_07",
       "tsMs": 1787131080000,
       "type": "creative.generated",
-      "entityId": "ct_app_52a76",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52a76"
+      "entityId": "ct_nik_52a76",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_52a76"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_08",
+      "id": "cmp_nike_evt_08",
       "tsMs": 1787131086000,
       "type": "creative.accepted",
-      "entityId": "ct_app_52d2d",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52d2d"
+      "entityId": "ct_nik_52d2d",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_52d2d"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_09",
+      "id": "cmp_nike_evt_09",
       "tsMs": 1787131326000,
       "type": "campaign.approved",
-      "entityId": "ct_app_52fe4",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52fe4"
+      "entityId": "ct_nik_52fe4",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_52fe4"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_10",
+      "id": "cmp_nike_evt_10",
       "tsMs": 1787131326400,
       "type": "dsp.payload.pushed",
-      "entityId": "ct_app_5329b",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_5329b"
+      "entityId": "ct_nik_5329b",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_5329b"
     },
     {
-      "id": "cmp_apple_vision_pro_evt_11",
+      "id": "cmp_nike_evt_11",
       "tsMs": 1787131326900,
       "type": "campaign.activated",
-      "entityId": "ct_app_53552",
-      "campaignId": "cmp_apple_vision_pro",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_53552"
+      "entityId": "ct_nik_53552",
+      "campaignId": "cmp_nike",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_nik_53552"
     },
     {
-      "id": "cmp_apple_music_evt_01",
+      "id": "cmp_netflix_evt_01",
+      "tsMs": 1787214360000,
+      "type": "campaign.created",
+      "entityId": "ct_net_51a2c",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_51a2c"
+    },
+    {
+      "id": "cmp_netflix_evt_02",
+      "tsMs": 1787214361100,
+      "type": "intake.brief.completed",
+      "entityId": "ct_net_51ce3",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_51ce3"
+    },
+    {
+      "id": "cmp_netflix_evt_03",
+      "tsMs": 1787214361600,
+      "type": "stage1.offer.classified",
+      "entityId": "ct_net_51f9a",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_51f9a"
+    },
+    {
+      "id": "cmp_netflix_evt_04",
+      "tsMs": 1787214363400,
+      "type": "stage1.channels.scored",
+      "entityId": "ct_net_52251",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_52251"
+    },
+    {
+      "id": "cmp_netflix_evt_05",
+      "tsMs": 1787214365100,
+      "type": "stage2.rate_cards.pulled",
+      "entityId": "ct_net_52508",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_52508"
+    },
+    {
+      "id": "cmp_netflix_evt_06",
+      "tsMs": 1787214366120,
+      "type": "research.completed",
+      "entityId": "ct_net_527bf",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_527bf"
+    },
+    {
+      "id": "cmp_netflix_evt_07",
+      "tsMs": 1787214600000,
+      "type": "creative.generated",
+      "entityId": "ct_net_52a76",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_52a76"
+    },
+    {
+      "id": "cmp_netflix_evt_08",
+      "tsMs": 1787214606000,
+      "type": "creative.accepted",
+      "entityId": "ct_net_52d2d",
+      "campaignId": "cmp_netflix",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_net_52d2d"
+    },
+    {
+      "id": "cmp_spotify_evt_01",
+      "tsMs": 1787326800000,
+      "type": "campaign.created",
+      "entityId": "ct_spo_51a2c",
+      "campaignId": "cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_spo_51a2c"
+    },
+    {
+      "id": "cmp_spotify_evt_02",
+      "tsMs": 1787326801100,
+      "type": "intake.brief.completed",
+      "entityId": "ct_spo_51ce3",
+      "campaignId": "cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_spo_51ce3"
+    },
+    {
+      "id": "cmp_spotify_evt_03",
+      "tsMs": 1787326801600,
+      "type": "stage1.offer.classified",
+      "entityId": "ct_spo_51f9a",
+      "campaignId": "cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_spo_51f9a"
+    },
+    {
+      "id": "cmp_spotify_evt_04",
+      "tsMs": 1787326803400,
+      "type": "stage1.channels.scored",
+      "entityId": "ct_spo_52251",
+      "campaignId": "cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_spo_52251"
+    },
+    {
+      "id": "cmp_spotify_evt_05",
+      "tsMs": 1787326805100,
+      "type": "stage2.rate_cards.pulled",
+      "entityId": "ct_spo_52508",
+      "campaignId": "cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_spo_52508"
+    },
+    {
+      "id": "cmp_spotify_evt_06",
+      "tsMs": 1787326806120,
+      "type": "research.completed",
+      "entityId": "ct_spo_527bf",
+      "campaignId": "cmp_spotify",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_spo_527bf"
+    },
+    {
+      "id": "cmp_stripe_evt_01",
       "tsMs": 1787396520000,
       "type": "campaign.created",
-      "entityId": "ct_app_51a2c",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51a2c"
+      "entityId": "ct_str_51a2c",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_51a2c"
     },
     {
-      "id": "cmp_apple_music_evt_02",
+      "id": "cmp_stripe_evt_02",
       "tsMs": 1787396520980,
       "type": "intake.brief.completed",
-      "entityId": "ct_app_51ce3",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51ce3"
+      "entityId": "ct_str_51ce3",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_51ce3"
     },
     {
-      "id": "cmp_apple_music_evt_03",
+      "id": "cmp_stripe_evt_03",
       "tsMs": 1787396521500,
       "type": "stage1.offer.classified",
-      "entityId": "ct_app_51f9a",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_51f9a"
+      "entityId": "ct_str_51f9a",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_51f9a"
     },
     {
-      "id": "cmp_apple_music_evt_04",
+      "id": "cmp_stripe_evt_04",
       "tsMs": 1787396523100,
       "type": "stage1.channels.scored",
-      "entityId": "ct_app_52251",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52251"
+      "entityId": "ct_str_52251",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_52251"
     },
     {
-      "id": "cmp_apple_music_evt_05",
+      "id": "cmp_stripe_evt_05",
       "tsMs": 1787396524700,
       "type": "stage2.rate_cards.cache_hit",
-      "entityId": "ct_app_52508",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52508"
+      "entityId": "ct_str_52508",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_52508"
     },
     {
-      "id": "cmp_apple_music_evt_06",
+      "id": "cmp_stripe_evt_06",
       "tsMs": 1787396525200,
       "type": "stage2.scrape.failed",
-      "entityId": "ct_app_527bf",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_527bf"
+      "entityId": "ct_str_527bf",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_527bf"
     },
     {
-      "id": "cmp_apple_music_evt_07",
+      "id": "cmp_stripe_evt_07",
       "tsMs": 1787396525840,
       "type": "research.completed_partial",
-      "entityId": "ct_app_52a76",
-      "campaignId": "cmp_apple_music",
-      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_app_52a76"
+      "entityId": "ct_str_52a76",
+      "campaignId": "cmp_stripe",
+      "portUrl": "https://app.getport.io/entity/catalyst_campaign/ct_str_52a76"
     }
   ]
 }

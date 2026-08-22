@@ -93,12 +93,35 @@ no `"$12–$18"`, no `"500k viewers"`. Formatting happens at render time in
 
 `lib/api.ts` is the only place that would talk to a backend. It stubs the Bright
 Data page read, the Signal Engine channel scoring, creative generation, and the
-Port writes. Two campaigns ship in `fixtures/campaigns.json`: Acme AI is already
-`ACTIVE` so `/app/campaigns/cmp_acme_ai` opens cold, and Molten is
-`READY_FOR_RESEARCH` so the full flow can be walked. Molten also carries the
-partial and cached states, so both render in the demo rather than only existing
-in code.
+Port writes.
+
+`fixtures/site-profiles.json` is what the scraper "reads". Each entry is a host,
+the brief a read of that site would fill, and the channel set the Signal Engine
+returns for that business, with a rationale written about that buyer rather than
+a generic one. Eight are shipped: apple.com, nike.com, netflix.com, spotify.com,
+stripe.com, tesla.com, airbnb.com and doordash.com. Subdomains match too. Adding
+a company means adding an entry, nothing else.
+
+An unrecognised host degrades honestly: the host name is all the stub can claim
+to have read, so only `product_name` and `product_url` are prefilled and a
+generic catalogue scores the channels by a B2B-versus-consumer keyword lean.
+
+`fixtures/campaigns.json` ships four campaigns, one per state, so every screen
+opens cold from its URL:
+
+| Campaign | State | Route |
+| --- | --- | --- |
+| Nike | `ACTIVE` | `/app/campaigns/cmp_nike` |
+| Netflix | `READY_FOR_REVIEW` | `.../cmp_netflix/review` |
+| Spotify | `READY_FOR_CREATIVE` | `.../cmp_spotify/creative` |
+| Stripe | `READY_FOR_RESEARCH` | `.../cmp_stripe/research` |
+
+Stripe also carries the partial and cached states, so both render in a demo
+rather than only existing in code.
 
 Campaigns created during a session are mirrored to `localStorage` so a refresh
 lands where you were. That is state persistence, not ownership: there is no
 user, no guest id, and the list shows every campaign.
+
+No company's logo or trade dress is reproduced anywhere. Generated creative is a
+proportional wireframe with a text label.

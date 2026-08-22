@@ -1,0 +1,666 @@
+[
+  {
+    "host": "apple.com",
+    "brief": {
+      "product_name": "Apple",
+      "product_url": "https://apple.com",
+      "offer_summary": "iPhone, Mac, iPad and Watch, sold direct with trade-in and carrier financing.",
+      "target_audience": "Existing Apple owners on a two to three year upgrade cycle, plus Android switchers in their twenties and thirties."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "YouTube",
+        "rationale": "Launch films live here, and the audience searches for them by name within the hour.",
+        "confidence": 0.94,
+        "cpmLow": 14.2,
+        "cpmHigh": 22.6,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Instagram",
+        "rationale": "Camera claims are judged here first. Reels carry the format the audience already watches.",
+        "confidence": 0.91,
+        "cpmLow": 11.8,
+        "cpmHigh": 18.4,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "TikTok",
+        "rationale": "Upgrade cycles are argued out in public here, and the younger half of the buyer sits on it.",
+        "confidence": 0.86,
+        "cpmLow": 7.4,
+        "cpmHigh": 13.2,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "r/apple and the carrier subreddits settle upgrade decisions before anyone reaches a store.",
+        "confidence": 0.78,
+        "cpmLow": 8.6,
+        "cpmHigh": 13.9,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "X",
+        "rationale": "Fast reach around launch events, though targeting has degraded and waste runs higher.",
+        "confidence": 0.71,
+        "cpmLow": 7.9,
+        "cpmHigh": 12.8,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Meta Audience Network",
+        "rationale": "Cheapest incremental reach in the set. Weak on brand, right for retargeting the visits.",
+        "confidence": 0.65,
+        "cpmLow": 5.2,
+        "cpmHigh": 9.4,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "nike.com",
+    "brief": {
+      "product_name": "Nike",
+      "product_url": "https://nike.com",
+      "offer_summary": "Footwear and apparel sold direct, with member-only drops and free returns.",
+      "target_audience": "Runners and sneaker buyers from their late teens to mid thirties, in cities, who buy on release day."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "Instagram",
+        "rationale": "Athlete and product photography carry here, and saves predict launch-day traffic.",
+        "confidence": 0.93,
+        "cpmLow": 12.4,
+        "cpmHigh": 19.8,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "TikTok",
+        "rationale": "Sneaker culture runs on this platform, and drops are discussed before they ship.",
+        "confidence": 0.9,
+        "cpmLow": 7.8,
+        "cpmHigh": 13.6,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "YouTube",
+        "rationale": "Long-form brand films and athlete documentaries, where the story outlives the flight.",
+        "confidence": 0.85,
+        "cpmLow": 13.1,
+        "cpmHigh": 20.4,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Snapchat",
+        "rationale": "Reaches the teenage half of the buyer that no longer opens the other apps.",
+        "confidence": 0.74,
+        "cpmLow": 6.9,
+        "cpmHigh": 11.8,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "r/Sneakers verifies authenticity and resale value, which decides the mid-tier purchase.",
+        "confidence": 0.68,
+        "cpmLow": 8.2,
+        "cpmHigh": 13.1,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Meta Audience Network",
+        "rationale": "Cheapest way back to a cart that was abandoned at checkout.",
+        "confidence": 0.63,
+        "cpmLow": 4.9,
+        "cpmHigh": 8.7,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "netflix.com",
+    "brief": {
+      "product_name": "Netflix",
+      "product_url": "https://netflix.com",
+      "offer_summary": "Streaming films and series across four tiers, including an ad-supported plan.",
+      "target_audience": "Households already paying for two streaming services, and lapsed subscribers who left after a season ended."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "YouTube",
+        "rationale": "Trailers are watched here by choice, and view-through predicts a first episode.",
+        "confidence": 0.94,
+        "cpmLow": 15.6,
+        "cpmHigh": 23.4,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "TikTok",
+        "rationale": "Scenes are clipped and argued about here within hours of a release.",
+        "confidence": 0.91,
+        "cpmLow": 8.2,
+        "cpmHigh": 14.1,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Instagram",
+        "rationale": "Cast-led promotion, where a title travels on a face rather than a logline.",
+        "confidence": 0.87,
+        "cpmLow": 11.2,
+        "cpmHigh": 17.6,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "Show subreddits sustain attention between seasons better than any paid flight.",
+        "confidence": 0.79,
+        "cpmLow": 9.4,
+        "cpmHigh": 14.8,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "X",
+        "rationale": "Live reaction through a premiere window, useful for a launch beat and little else.",
+        "confidence": 0.72,
+        "cpmLow": 8.1,
+        "cpmHigh": 13.2,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Meta Audience Network",
+        "rationale": "Retargeting lapsed subscribers against a specific title rather than the service.",
+        "confidence": 0.66,
+        "cpmLow": 5.1,
+        "cpmHigh": 9.2,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "spotify.com",
+    "brief": {
+      "product_name": "Spotify",
+      "product_url": "https://spotify.com",
+      "offer_summary": "Music and podcasts on a free tier or Premium, with a student rate and family plans.",
+      "target_audience": "Free-tier listeners who hit the skip limit, and students eligible for the discounted plan."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "TikTok",
+        "rationale": "A sound becomes a search. This is the shortest path from a clip to a stream.",
+        "confidence": 0.93,
+        "cpmLow": 7.1,
+        "cpmHigh": 12.8,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Instagram",
+        "rationale": "Story shares of playlists behave like word of mouth with a measurable click.",
+        "confidence": 0.89,
+        "cpmLow": 10.8,
+        "cpmHigh": 16.9,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "YouTube",
+        "rationale": "Music video watch time marks a listener who is not yet paying for a subscription.",
+        "confidence": 0.84,
+        "cpmLow": 12.3,
+        "cpmHigh": 19.1,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "Genre communities argue catalogue depth and audio quality, and they convert.",
+        "confidence": 0.76,
+        "cpmLow": 8.4,
+        "cpmHigh": 13.3,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Snapchat",
+        "rationale": "Reaches students during the window when the discount actually matters.",
+        "confidence": 0.7,
+        "cpmLow": 6.4,
+        "cpmHigh": 11.2,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Meta Audience Network",
+        "rationale": "Retargeting the trial page, the cheapest way back to someone who nearly signed up.",
+        "confidence": 0.64,
+        "cpmLow": 4.7,
+        "cpmHigh": 8.6,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "stripe.com",
+    "brief": {
+      "product_name": "Stripe",
+      "product_url": "https://stripe.com",
+      "offer_summary": "Payments, billing and payouts for internet businesses, priced per transaction.",
+      "target_audience": "Engineering and finance leads at companies processing their first million in payments."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "LinkedIn",
+        "rationale": "Finance and engineering leaders both sit here, and this is a two-signature purchase.",
+        "confidence": 0.92,
+        "cpmLow": 30.4,
+        "cpmHigh": 44.2,
+        "adUnit": {
+          "w": 728,
+          "h": 90
+        }
+      },
+      {
+        "platform": "Stack Overflow",
+        "rationale": "Integration questions are asked here first, which is the moment of highest intent.",
+        "confidence": 0.88,
+        "cpmLow": 19.6,
+        "cpmHigh": 27.4,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "r/SaaS and r/webdev compare processors openly, including on fees.",
+        "confidence": 0.83,
+        "cpmLow": 9.8,
+        "cpmHigh": 15.2,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Carbon Ads",
+        "rationale": "One unobtrusive unit across developer publications. Cheap endemic reach.",
+        "confidence": 0.79,
+        "cpmLow": 12.8,
+        "cpmHigh": 20.1,
+        "adUnit": {
+          "w": 130,
+          "h": 100
+        }
+      },
+      {
+        "platform": "YouTube",
+        "rationale": "Integration walkthroughs and conference talks, for capture once the category is understood.",
+        "confidence": 0.71,
+        "cpmLow": 12.4,
+        "cpmHigh": 18.6,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "X",
+        "rationale": "Founders and engineering leads still congregate here around launches.",
+        "confidence": 0.66,
+        "cpmLow": 8.9,
+        "cpmHigh": 14,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "tesla.com",
+    "brief": {
+      "product_name": "Tesla",
+      "product_url": "https://tesla.com",
+      "offer_summary": "Electric vehicles ordered online, with delivery scheduling and no dealership.",
+      "target_audience": "Households replacing a second car, who have already run the charging maths and read the range tests."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "YouTube",
+        "rationale": "Range tests and ownership reviews decide this purchase more than any ad does.",
+        "confidence": 0.9,
+        "cpmLow": 14.8,
+        "cpmHigh": 22.1,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "Owner subreddits carry the service and software complaints that shape consideration.",
+        "confidence": 0.86,
+        "cpmLow": 9.6,
+        "cpmHigh": 15.1,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Instagram",
+        "rationale": "Design-led imagery, which is what separates the car from its spec sheet.",
+        "confidence": 0.81,
+        "cpmLow": 11.6,
+        "cpmHigh": 18.2,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "X",
+        "rationale": "The category's conversation still starts here, for better and worse.",
+        "confidence": 0.77,
+        "cpmLow": 8.4,
+        "cpmHigh": 13.7,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "TikTok",
+        "rationale": "Delivery-day content reaches the younger buyer years before they can buy.",
+        "confidence": 0.69,
+        "cpmLow": 7.2,
+        "cpmHigh": 12.6,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Meta Audience Network",
+        "rationale": "Retargeting a configurator session that never reached a deposit.",
+        "confidence": 0.61,
+        "cpmLow": 5.3,
+        "cpmHigh": 9.6,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "airbnb.com",
+    "brief": {
+      "product_name": "Airbnb",
+      "product_url": "https://airbnb.com",
+      "offer_summary": "Stays and experiences booked direct from hosts, with flexible dates and free cancellation.",
+      "target_audience": "Travellers planning two to three trips a year who compare a stay against a hotel on total cost."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "Instagram",
+        "rationale": "Destination imagery is the product. Saves here lead bookings by weeks.",
+        "confidence": 0.92,
+        "cpmLow": 11.9,
+        "cpmHigh": 18.7,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "Pinterest",
+        "rationale": "Trip planning starts months out, and a pin holds intent far longer than a click.",
+        "confidence": 0.87,
+        "cpmLow": 5.8,
+        "cpmHigh": 10.4,
+        "adUnit": {
+          "w": 1000,
+          "h": 1500
+        }
+      },
+      {
+        "platform": "TikTok",
+        "rationale": "Stay tours travel further than any listing photo, and they name the city.",
+        "confidence": 0.84,
+        "cpmLow": 7.6,
+        "cpmHigh": 13.4,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "YouTube",
+        "rationale": "Travel vlogs, where a neighbourhood sells itself before a price is seen.",
+        "confidence": 0.78,
+        "cpmLow": 12.1,
+        "cpmHigh": 18.8,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Google Display Network",
+        "rationale": "Broad retargeting against a search that has already happened.",
+        "confidence": 0.72,
+        "cpmLow": 4.6,
+        "cpmHigh": 8.4,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "City subreddits answer where to stay, and they distrust anything sponsored.",
+        "confidence": 0.65,
+        "cpmLow": 8.8,
+        "cpmHigh": 13.9,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  },
+  {
+    "host": "doordash.com",
+    "brief": {
+      "product_name": "DoorDash",
+      "product_url": "https://doordash.com",
+      "offer_summary": "Restaurant and grocery delivery, with a subscription that removes the delivery fee.",
+      "target_audience": "City households ordering twice a week who currently pay per-order fees on a rival app."
+    },
+    "prefilled": [
+      "product_name",
+      "product_url",
+      "offer_summary",
+      "target_audience"
+    ],
+    "channels": [
+      {
+        "platform": "TikTok",
+        "rationale": "Food content converts on impulse, and the order can happen in the same minute.",
+        "confidence": 0.91,
+        "cpmLow": 6.8,
+        "cpmHigh": 12.2,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "Instagram",
+        "rationale": "Restaurant partners already post here, so half the creative exists before the buy.",
+        "confidence": 0.88,
+        "cpmLow": 10.4,
+        "cpmHigh": 16.3,
+        "adUnit": {
+          "w": 1080,
+          "h": 1080
+        }
+      },
+      {
+        "platform": "Meta Audience Network",
+        "rationale": "Cheapest reach for a promotion that only needs to arrive before dinner.",
+        "confidence": 0.82,
+        "cpmLow": 4.4,
+        "cpmHigh": 8.1,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Snapchat",
+        "rationale": "Campus reach during the hours when the discount decides the order.",
+        "confidence": 0.75,
+        "cpmLow": 6.2,
+        "cpmHigh": 11,
+        "adUnit": {
+          "w": 1080,
+          "h": 1920
+        }
+      },
+      {
+        "platform": "YouTube",
+        "rationale": "Bumper formats for a category that needs reminding, not explaining.",
+        "confidence": 0.68,
+        "cpmLow": 11.2,
+        "cpmHigh": 17.4,
+        "adUnit": {
+          "w": 970,
+          "h": 250
+        }
+      },
+      {
+        "platform": "Reddit",
+        "rationale": "City subreddits discuss fees openly, which is the objection to answer.",
+        "confidence": 0.62,
+        "cpmLow": 8.1,
+        "cpmHigh": 12.9,
+        "adUnit": {
+          "w": 300,
+          "h": 250
+        }
+      }
+    ]
+  }
+]
