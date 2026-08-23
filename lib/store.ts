@@ -61,13 +61,33 @@ function readOverlay(): Snapshot | null {
   }
 }
 
+/**
+ * A generated creative arrives as a data URL of a megabyte or more, which
+ * would exhaust the storage quota within a couple of campaigns. The image
+ * stays in memory for the session; only the reference to a shipped asset is
+ * durable. After a reload a generated campaign shows its wireframe again.
+ */
+function stripInlineAssets(snapshot: Snapshot): Snapshot {
+  return {
+    ...snapshot,
+    campaigns: snapshot.campaigns.map((c) =>
+      c.creative?.assetUrl?.startsWith("data:")
+        ? { ...c, creative: { ...c.creative, assetUrl: undefined } }
+        : c,
+    ),
+  };
+}
+
 function writeOverlay(snapshot: Snapshot) {
   if (typeof window === "undefined") return;
   try {
-    const payload: StoredOverlay = { ...snapshot, seedVersion: SEED_VERSION };
+    const payload: StoredOverlay = {
+      ...stripInlineAssets(snapshot),
+      seedVersion: SEED_VERSION,
+    };
     window.localStorage.setItem(KEY, JSON.stringify(payload));
   } catch {
-    // Storage unavailable; the session still works, it just will not survive.
+    // Storage unavailable or full; the session still works in memory.
   }
 }
 

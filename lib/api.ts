@@ -283,23 +283,48 @@ export function previewUnitFor(campaign: Campaign): { w: number; h: number } {
 export async function generateCreative(id: string): Promise<Creative | null> {
   const campaign = getCampaign(id);
   if (!campaign) return null;
-  await sleep(GENERATE_MS);
+
   const top = campaign.research?.channels.find((c) => c.included);
   const profile = profileFor(campaign.brief.product_url);
-  // A known brand returns its rendered asset; anything else returns the unit
-  // it was briefed for and the frame draws a wireframe.
-  const unit = profile?.creative
-    ? { w: profile.creative.w, h: profile.creative.h }
-    : (top?.adUnit ?? { w: 300, h: 250 });
   const slug = campaign.brief.product_name.toLowerCase().replace(/\s+/g, "-");
+  const platform = (top?.platform ?? "display").toLowerCase().replace(/\s+/g, "-");
+
+  // Ask the server to generate against the brief. It holds the key; this never
+  // sees it. Anything short of a real image falls through to the shipped asset,
+  // so the flow still completes with no key and no network.
+  let generated: { assetUrl: string; w: number; h: number } | null = null;
+  try {
+    const response = await fetch("/api/creative", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        productName: campaign.brief.product_name,
+        offerSummary: campaign.brief.offer_summary,
+        targetAudience: campaign.brief.target_audience,
+        campaignGoal: campaign.brief.campaign_goal,
+        channel: top?.platform,
+      }),
+    });
+    if (response.ok) {
+      generated = (await response.json()) as { assetUrl: string; w: number; h: number };
+    }
+  } catch {
+    // Offline or the route is unreachable; the fallback below covers it.
+  }
+
+  const asset = generated ?? profile?.creative ?? null;
+  const unit = asset
+    ? { w: asset.w, h: asset.h }
+    : (top?.adUnit ?? { w: 300, h: 250 });
+
   const creative: Creative = {
     kind: "generated",
-    filename: `${slug}-${(top?.platform ?? "display").toLowerCase().replace(/\s+/g, "-")}-${unit.w}x${unit.h}.png`,
-    sizeBytes: profile?.creative ? 1032453 : 184320,
+    filename: `${slug}-${platform}-${unit.w}x${unit.h}.png`,
+    sizeBytes: generated ? Math.round((generated.assetUrl.length * 3) / 4) : 184320,
     format: "PNG",
     adUnit: unit,
     briefedAgainst: top?.platform,
-    ...(profile?.creative ? { assetUrl: profile.creative.assetUrl } : {}),
+    ...(asset ? { assetUrl: asset.assetUrl } : {}),
   };
   event(id, "creative.generated", Date.now());
   return creative;
