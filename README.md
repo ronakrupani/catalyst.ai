@@ -4,8 +4,8 @@ Marketing site at `/`, product dashboard at `/app`. No auth: anyone with a link
 can open anything, and a campaign URL is the share mechanism.
 
 The marketing page replays one recorded pipeline run, driven by scroll position.
-The dashboard walks a campaign through four states — intake, research, creative,
-review — and every backend call is stubbed, so the whole flow runs with the
+The dashboard walks a campaign through four states - intake, research, creative,
+review - and every backend call is stubbed, so the whole flow runs with the
 server off.
 
 ```bash
@@ -38,16 +38,16 @@ app/            layout, page, globals.css (design tokens), OG image, icon
   app/          dashboard shell and every campaign route
 components/
   primitives/   WaterfallRail, PlacementCard, StageCard, ChannelRow,
-                StatusPill, MonoValue — no marketing-specific props, these
+                StatusPill, MonoValue - no marketing-specific props, these
                 lift into the app repo unchanged
   site/         Nav, Hero, ReplayDemo, StageSplit, AuditStream, CachedVsLive,
-                ConnectionsStrip, Footer, RunProvider — marketing composition
+                ConnectionsStrip, Footer, RunProvider - marketing composition
   ui/           shadcn Button and Textarea, every colour and radius remapped
                 to ct- tokens
 lib/            campaign, api (typed mock client), store, useStore, types,
                 format, replay, scroll, demo-run, connections, utils
-fixtures/       demo-run.json — the recorded marketing run
-                campaigns.json — two complete campaigns, all values numeric
+fixtures/       demo-run.json - the recorded marketing run
+                campaigns.json - two complete campaigns, all values numeric
 assets/         TTF fonts used only by the OG image renderer
 ```
 
@@ -59,7 +59,7 @@ Tailwind v4 `@theme inline` block mirrors them so utilities such as
 default Tailwind palette is reset, so no stock slate can leak in.
 
 Violet is always Stage 1, sodium amber is always Stage 2. Cached or degraded
-data is slate with a dashed border — never a live colour. Every machine-emitted
+data is slate with a dashed border - never a live colour. Every machine-emitted
 value renders in JetBrains Mono with tabular figures; human-written labels are
 General Sans. Fonts are self-hosted through `next/font`.
 
@@ -78,7 +78,7 @@ done pill at the foot.
 ## Fixture
 
 `fixtures/demo-run.json` carries spans, the Stage 1 profile with ranked
-channels, 12 placements, and the Port audit events. Every value is numeric —
+channels, 12 placements, and the Port audit events. Every value is numeric -
 no `"$12–$18"`, no `"500k viewers"`. Formatting happens at render time in
 `lib/format.ts`. Types in `lib/types.ts` are shared with the app.
 
