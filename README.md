@@ -1,5 +1,7 @@
 # catalyst.ai
 
+![The marketing page](assets/screenshot.png)
+
 Marketing site at `/`, product dashboard at `/app`. No auth: anyone with a link
 can open anything, and a campaign URL is the share mechanism.
 
